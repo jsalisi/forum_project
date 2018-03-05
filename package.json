@@ -1,0 +1,24 @@
+{
+  "name": "forum_project",
+  "version": "1.0.0",
+  "description": "This is a project that contains the files and server scripts for a forum",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsalisi/forum_project.git"
+  },
+  "author": "Justin Salisi, Bo Cheng, Jasper Pabuaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsalisi/forum_project/issues"
+  },
+  "homepage": "https://github.com/jsalisi/forum_project#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
