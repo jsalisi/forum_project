@@ -1,11 +1,223 @@
-#test {
-  position: absolute;
-  width: 20%;
-  height: 20%;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  margin:auto;
-  background-color: red;
+/* body wrapper */
+#bodyWrapper {
+        top: 0; left: 0;
+    position: static;
+    width: 98.2vw;
 }
+
+
+/* credentials */
+#credentials {
+        top: 0; left:0;
+        height: 5vh;   width: 100%;
+    margin: auto;
+    background-color: yellow;
+    position: absolute;
+}
+#welcome {
+        top: 0%; bottom: 0%;
+        left: 2%;
+        height: 50%; width: 30%;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    font-size: 100%;
+}
+
+#loginInput {
+        top: 0%;
+        right: 1%;
+        height: 48%; width: 20%;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    font-size: 100%;
+}
+#loginCheck {
+        bottom: 0%;
+        right: 2%;
+        height: 48%; width: 19%;
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    font-size: 105%;
+}
+.credField {
+    margin: 1%;
+    display: inline-block;
+    width: 44%; height: 60%;
+    font-size: 100%;
+}
+#remember {
+    width: 4%; height: 50%;
+}
+#loginBut {
+        right: 1%;
+    position: absolute;
+    font-size: 90%;
+    
+}
+
+
+/* banner */
+#banner {
+        left: 0; top: 5vh;
+        height: 15vh;   width: 100%;
+    background-color: greenyellow;
+    display: inline-block;
+    position: absolute;
+}
+
+
+/* search bar */
+#searchBar {
+        left: 0; top: 20vh;
+        height: 5vh;   width: 100%;
+    background-color: lightgrey;
+    display: inline-block;
+    position: absolute;
+}
+
+
+#searchMenu {
+        left: 1%;
+        height: 100%; width: 12%;
+    position: absolute;
+}
+.forumSelect {
+        height: 100%;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+#recent {
+        left: 5%;
+    position: absolute;
+}
+#forum {
+        right: 12%;
+    position: absolute;
+}
+
+
+#searchBox {
+        right: 1%;
+        height: 100%; width: 30%;
+    position: absolute;
+}
+#searchType {
+        top: 0; bottom: 0;
+        right: 10%;
+        height: 65%;
+    position: absolute;
+    margin: auto
+}
+
+
+/* hot topics */
+#hotTopic {
+        right: 1%; top: 35vh;
+        width: 15%; height: 60vh;
+    position: absolute;
+    margin: auto;
+    background-color: aqua;
+}
+#hotTopicTitle {
+        top: 1%;
+        left: 0; right: 0;
+    position: absolute;
+    margin: auto;
+    font-size: 200%;
+}
+
+
+/* forum type selections */
+#discussSelect {
+        left: 5%; top: 35vh;
+        width: 65%; height: 100%;
+    position: absolute;
+    margin: auto;
+    background-color: aliceblue;
+}
+.topic {
+        width: 96%; height: 25%;
+    border:1px solid black;
+    margin: 2%;
+}
+.topicTitle {
+        padding: .5%;
+    margin: 0.2%;
+    background-color: darkgrey;
+    color: white;
+}
+.topicBanner {
+        width: 99.7%; height: 8%;
+    margin: 0.2%;
+    background-color: dimgrey;
+    color: white;
+    margin: 0.1%;
+    display: inline-block;
+}
+.topicContainer {
+        width: 75%; 
+        padding-left: 0.5%;
+    background-color: black;
+    display: inline-block;
+}
+.statsContainer {
+        width: 10%;
+    background-color: white;
+    display: inline-block;
+    color: black
+}
+.latestContainer {
+    width: 13.6%;
+    background-color: white;
+    display: inline-block;
+    color: black
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
