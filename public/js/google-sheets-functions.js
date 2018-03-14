@@ -1,13 +1,13 @@
 // This is a database test for the forum
 
 const GoogleSpreadsheet = require('google-spreadsheet');
-const creds = require('./client_secret.json');
+const creds = require('./json/client_secret.json');
 
 const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk');
 
 // Spredsheet ID
-const users_worksheet = 1;
-const posts_worksheet = 2;
+const USERS_WORKSHEET = 1;
+const GD_WORKSHEET = 2;
 
 var loadPosts = () => {
   return new Promise((resolve, reject) => {
@@ -15,7 +15,7 @@ var loadPosts = () => {
       if (err) {
         reject(err);
       } else {
-        doc.getRows(posts_worksheet, function(err, rows) {
+        doc.getRows(GD_WORKSHEET, function(err, rows) {
           if (err) {
             reject(err);
           } else {
@@ -33,7 +33,7 @@ var addNewUser = (user, pass, account_type) => {
       if (err) {
         reject(err);
       } else {
-        doc.addRow(users_worksheet, {
+        doc.addRow(USERS_WORKSHEET, {
           username: user,
           password: pass,
           user_type: account_type
@@ -56,11 +56,11 @@ var addNewUser = (user, pass, account_type) => {
 //   }
 // });
 //
-// addNewUser('coolguy5', 'testpass5', 'standard').then((result) => {
+// addNewUser('coolguy6', 'testpass6', 'standard').then((result) => {
 //   console.log(result);
 // });
 
 module.exports = {
   loadPosts,
   addNewUser
-}
+};
