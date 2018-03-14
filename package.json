@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jsalisi/forum_project#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "google-spreadsheet": "^2.0.4",
     "request": "^2.83.0"
   }
 }
