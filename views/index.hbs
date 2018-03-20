@@ -1,0 +1,88 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Forum Project</title>
+        <link href='css/style.css' rel='stylesheet' type='text/css' />
+    </head>
+
+    <body>
+        <div id='bodyWrapper'>
+            <div id='credentials'>
+                <div id='welcome'>
+                    <span>
+                        Hello and welcome to our forum.
+                        <strong><i>Is this your first visit?</i></strong>
+                    </span>
+                    <button id='register'>Register</button>
+                </div>
+                <div id='loginInput'>
+                    <input id='username' type='text' class='credField' placeholder='Username' />
+                    <input id='password' type='password' class='credField' placeholder='Password' />
+                </div>
+                <div id='loginCheck'>
+                    <input id='remember' type='checkbox' value=True>Remember Me
+                    <button id='loginBut'>Log In</button>
+                </div>
+            </div>
+
+            <div id='banner'></div>
+
+            <div id='searchBar'>
+                <div id='searchMenu'>
+                    <div id='recent' class='forumSelect'>
+                        <p><b>What's New</b></p>
+                    </div>
+                    <div id='forum' class='forumSelect'>
+                        <p><b>Forum</b></p>
+                    </div>
+                </div>
+
+                <div id='searchBox'>
+                    <input id='searchType' type='text' placeholder='Search' />
+                    <! later on we want a little magnifying glass icon so users can click on to search>
+                </div>
+            </div>
+
+            <div id='announcements'>
+                <div id='announcementTitle'
+            </div>
+
+            <div id='discussSelect'>
+                <div id='monhun' class='topic'>
+                    <div class='topicTitle'>
+                        <b>Monster Hunter</b>
+                    </div>
+                    <div class='topicBanner'>
+                        <div class='topicContainer'>
+                            <span>Title</span>
+                        </div>
+                        <div class='statsContainer'>stats</div>
+                        <div class='latestContainer'>Last Post</div>
+                    </div>
+                    {{monhun_post}}
+                </div>
+                <div id='community' class='topic'>
+                    <div class='topicTitle'>
+                        <b>Community</b>
+                    </div>
+                    <div class='topicBanner'>
+                        <div class='topicContainer'>
+                            <span>Title</span>
+                        </div>
+                        <div class='statsContainer'>stats</div>
+                        <div class='latestContainer'>Last Post</div>
+                    </div>
+                    <p id="test_paragraph"></p>
+                </div>
+            </div>
+
+            <div id='hotTopic'>
+                <div id='hotTopicTitle'>
+                    <center><p><b>Popular Topics</b></p></center>
+                </div>
+            </div>
+        </div>
+
+        <script src='js/app.js'></script>
+    </body>
+</html>

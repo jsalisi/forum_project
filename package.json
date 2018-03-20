@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "google-spreadsheet": "^2.0.4",
+    "hbs": "^4.0.1",
     "request": "^2.83.0"
   }
 }
