@@ -11,10 +11,10 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 const USERS_WORKSHEET = 1;
 const GD_WORKSHEET = 2;
 
-/** Spreadheet Notes **/
+/** Spreadsheet Notes **/
 /*
 
-  Google Spreadsheets oobjects are returned with the following format:
+  Google Spreadsheets objects are returned with the following format:
 
   OBJECT[ index / user number ] = {column_name: 'value in column'}
 
