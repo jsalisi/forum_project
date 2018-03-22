@@ -41,6 +41,8 @@ var loadPosts = () => {
   });
 }
 
+// TODO: Add posting feature
+
 // Appends a user object to the spreadsheet
 var addNewUser = (user, pass, account_type) => {
   return new Promise((resolve, reject) => {
@@ -63,6 +65,8 @@ var addNewUser = (user, pass, account_type) => {
     });
   });
 }
+
+// TODO: Add login feature
 
 
 // Test Codes
