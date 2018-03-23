@@ -68,6 +68,20 @@ app.get('/community', (request, response) => {
   });
 });
 
+// rendering post topic list page
+app.get('/postThread', (request, response) => {
+  database.loadPosts().then((post) => {
+    response.render('postThread.hbs', {
+        monhun_post: post[0].post,
+        title: 'Title/Thread Starter',
+        stats: 'Replies/Views',
+        recent: 'Last Post By'
+    });
+  }).catch((error) => {
+    response.send(error);
+  });
+});
+
 
 
 //****************************Server***************************************//

@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Forum Project</title>
+        <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
+    </head>
+
+    <body>
+        <div id='bodyWrapper'>
+            {{> topBanner}}
+
+            <div id='discussSelect'>
+               <div id='monhun' class='topic'>
+                   
+                   <div class='topicTitle'>
+                       <b>Post New Thread</b>
+                   </div>
+                   
+                   <form action="/action_page.php" id="usrform">
+                       Topic: <input type="text" name="usrname">
+                       <br>
+                       
+                       <textarea rows="4" cols="50" name="comment" form="usrform">
+                       </textarea>
+                       
+                       <br>
+                       <input type="submit">
+                   </form>
+                   
+                   
+                </div>
+            </div>
+            
+        </div>
+
+        <script src='js/app.js'></script>
+    </body>
+</html>
