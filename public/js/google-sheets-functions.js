@@ -12,8 +12,8 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 const USERS_WORKSHEET = 1;
 const GD_WORKSHEET = 2;
 
-/** Spreadsheet Notes **/
 /*
+** Spreadsheet Notes **
 
   Google Spreadsheets objects are returned with the following format:
 
@@ -21,8 +21,11 @@ const GD_WORKSHEET = 2;
 
 */
 
-// Loads data from the spreadsheet
-// Returns an object containing the data from the spreadsheet
+/*
+* Loads data from the spreadsheet
+*
+* @resolve {object} rows - contains the data from the spreadsheet
+*/
 var loadPosts = () => {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
@@ -41,9 +44,9 @@ var loadPosts = () => {
   });
 }
 
-// Appends a post to the spreadsheet
-
 /*
+* Appends a post to the spreadsheet
+*
 * @param {string} user - A username
 * @param {string} topic_post - A post created by the user
 */
@@ -68,9 +71,9 @@ var addNewPost = (user, topic_post) => {
   });
 }
 
-// Appends a user object to the spreadsheet
-
 /*
+* Appends a user object to the spreadsheet
+*
 * @param {string} user - A username
 * @param {string} pass - A password
 * @param {string} account_type - Account type [admin, standard]
@@ -97,9 +100,9 @@ var addNewUser = (user, pass, account_type) => {
   });
 }
 
-// Allows users to login using credentials saved in the databse
-
 /*
+* Allows users to login using credentials saved in the databse
+*
 * @param {string} user - A username
 * @param {string} pass - A password
 */
