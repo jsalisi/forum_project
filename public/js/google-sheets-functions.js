@@ -109,34 +109,6 @@ var login = (user, pass) => {
   });
 };
 
-
-/** Test Codes **/
-
-/* Testing Load functionality */
-// loadPosts().then((posts) => {
-//   for (var i=0; i<posts.length; i++) {
-//     console.log(posts[i].user);
-//     console.log(posts[i].post);
-//   }
-// });
-
-/* Testing add user functionality */
-// addNewUser('coolguy16', 'testpass6', 'standard').then((result) => {
-//   console.log(result);
-// });
-//
-// var test_post = "This is my first post!"
-
-/* Testing add post functionality */
-// addNewPost('coolguy6', test_post).then((result) => {
-//   console.log(result);
-// }).catch((error) => {
-//   console.log(error);
-// });
-
-/* Testing login functionality */
-//TODO: write login test code
-
 module.exports = {
   loadPosts,
   addNewPost,
