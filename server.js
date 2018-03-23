@@ -30,7 +30,6 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('index.hbs', {
-        monhun_post: post[0].post,
         title: 'Title',
         stats: '',
         recent: 'Last Post'
@@ -44,7 +43,6 @@ app.get('/home', (request, response) => {
 app.get('/monhun', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('monhun.hbs', {
-        monhun_post: post[0].post,
         title: 'Title/Thread Starter',
         stats: 'Replies/Views',
         recent: 'Last Post By'
@@ -58,7 +56,6 @@ app.get('/monhun', (request, response) => {
 app.get('/community', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('community.hbs', {
-        monhun_post: post[0].post,
         title: 'Title/Thread Starter',
         stats: 'Replies/Views',
         recent: 'Last Post By'
