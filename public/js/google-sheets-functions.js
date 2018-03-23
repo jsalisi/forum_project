@@ -41,7 +41,32 @@ var loadPosts = () => {
   });
 }
 
-// TODO: Add posting feature
+// Appends a post to the spreadsheet
+
+/*
+* @param {string} user - A username
+* @param {string} topic_post - A post created by the user
+*/
+var addNewPost = (user, topic_post) => {
+  return new Promise((resolve, reject) => {
+    doc.useServiceAccountAuth(creds, function(err) {
+      if (err) {
+        reject(err);
+      } else {
+        doc.addRow(GD_WORKSHEET, {
+          user: user,
+          post: topic_post
+        }, function(err) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve('New post added');
+          }
+        });
+      }
+    });
+  });
+}
 
 // Appends a user object to the spreadsheet
 
@@ -83,11 +108,20 @@ var addNewUser = (user, pass, account_type) => {
 //   }
 // });
 //
-// addNewUser('coolguy6', 'testpass6', 'standard').then((result) => {
+// addNewUser('coolguy16', 'testpass6', 'standard').then((result) => {
 //   console.log(result);
+// });
+//
+// var test_post = "This is my first post!"
+//
+// addNewPost('coolguy6', test_post).then((result) => {
+//   console.log(result);
+// }).catch((error) => {
+//   console.log(error);
 // });
 
 module.exports = {
   loadPosts,
+  addNewPost,
   addNewUser
 };
