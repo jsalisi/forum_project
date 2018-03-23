@@ -97,7 +97,17 @@ var addNewUser = (user, pass, account_type) => {
   });
 }
 
-// TODO: Add login feature
+// Allows users to login using credentials saved in the databse
+
+/*
+* @param {string} user - A username
+* @param {string} pass - A password
+*/
+var login = (user, pass) => {
+  return new Promise((resolve, reject) => {
+    // TODO: Add login feature
+  });
+};
 
 
 /** Test Codes **/
@@ -130,5 +140,6 @@ var addNewUser = (user, pass, account_type) => {
 module.exports = {
   loadPosts,
   addNewPost,
-  addNewUser
+  addNewUser,
+  login
 };
