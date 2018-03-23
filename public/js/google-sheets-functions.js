@@ -73,7 +73,7 @@ var addNewPost = (user, topic_post) => {
 /*
 * @param {string} user - A username
 * @param {string} pass - A password
-* param {string} account_type - Account type [admin, standard]
+* @param {string} account_type - Account type [admin, standard]
 */
 var addNewUser = (user, pass, account_type) => {
   return new Promise((resolve, reject) => {
@@ -100,25 +100,32 @@ var addNewUser = (user, pass, account_type) => {
 // TODO: Add login feature
 
 
-// Test Codes
+/** Test Codes **/
+
+/* Testing Load functionality */
 // loadPosts().then((posts) => {
 //   for (var i=0; i<posts.length; i++) {
 //     console.log(posts[i].user);
 //     console.log(posts[i].post);
 //   }
 // });
-//
+
+/* Testing add user functionality */
 // addNewUser('coolguy16', 'testpass6', 'standard').then((result) => {
 //   console.log(result);
 // });
 //
 // var test_post = "This is my first post!"
-//
+
+/* Testing add post functionality */
 // addNewPost('coolguy6', test_post).then((result) => {
 //   console.log(result);
 // }).catch((error) => {
 //   console.log(error);
 // });
+
+/* Testing login functionality */
+//TODO: write login test code
 
 module.exports = {
   loadPosts,
