@@ -11,8 +11,8 @@
         top: 0; left:0;
         height: 5vh;   width: 100%;
     margin: auto;
-    background-color: yellow;
     position: absolute;
+    z-index: 9999;
 }
 #welcome {
         top: 0%; bottom: 0%;
@@ -21,6 +21,7 @@
     display: inline-block;
     position: absolute;
     margin: auto;
+    color: white;
     font-size: 100%;
 }
 
@@ -54,20 +55,32 @@
 #loginBut {
         right: 1%;
     position: absolute;
-    font-size: 90%;
-    
+    font-size: 90%;  
 }
 
-
+/*TODO: adjust images to fit different screen sizes*/
 /* banner */
 #banner {
-        left: 0; top: 5vh;
-        height: 15vh;   width: 100%;
-    background-color: greenyellow;
+    left: 0; top: 0;
+    height: 20vh;   width: 100%;
+    background-image: url("/img/banner1.jpg");
+    background-position: top center;
+    background-size: cover;
     display: inline-block;
     position: absolute;
 }
 
+/*body background*/
+/*TODO: make bg static on the back while page scrolls*/
+#bodybg {
+    left: 0; top: 0;
+    height: 140vh;
+    width: 99vw;
+    background-image: url('/img/bodybg2.jpg');
+    background-position: top center;
+    background-size: cover;
+    position: absolute;
+}
 
 /* search bar */
 #searchBar {
