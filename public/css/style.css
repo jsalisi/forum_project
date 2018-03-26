@@ -74,7 +74,7 @@
 
 /*body background*/
 /*TODO: make bg static on the back while page scrolls*/
-#bodybg {
+#bodydg {
     left: 0; top: 0;
     height: 140vh;
     width: 99vw;
