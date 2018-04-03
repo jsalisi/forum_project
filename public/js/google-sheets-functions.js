@@ -108,9 +108,45 @@ var addNewUser = (user, pass, account_type) => {
 */
 var login = (user, pass) => {
   return new Promise((resolve, reject) => {
-    // TODO: Add login feature
+    var login = {username: user, password: pass};
+    doc.useServiceAccountAuth(creds, function(err) {
+      if (err) {
+        reject(err);
+      } else {
+        doc.getRows(USERS_WORKSHEET, function(err, rows) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(parseUserCreds(login, rows));
+          }
+        });
+      }
+    });
   });
 };
+
+
+/*
+* Checks if the user credentials matches with the database.
+*
+* @param {object} login - Contains an object with user credentials
+* @param {object} userList - Contains the data within the database
+*/
+var parseUserCreds = (login, userList) => {
+
+  var return_statements = {
+    success: "Authentication Successful",
+    failed: "Authentication Failed"
+  }
+
+  for (var i=0; i<userList.length; i++) {
+    if ((login.username === userList[i].username) && (login.password === userList[i].password)) {
+      return return_statements.success;
+      break;  
+    }
+  }
+  return return_statements.failed;
+}
 
 module.exports = {
   loadPosts,

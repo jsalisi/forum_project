@@ -1,6 +1,6 @@
 // temporarily testing google sheets functions
 
-var databse = require('./google-sheets-functions.js')
+var database = require('./google-sheets-functions.js')
 
 /** Test Codes **/
 
@@ -27,4 +27,8 @@ database.addNewPost('stephen', test_post).then((result) => {
 });
 
 /* Testing login functionality */
-//TODO: write login test code
+database.login("admin", "P@ssw0rd").then((results) => {
+  console.log(results);
+}).catch((error) => {
+  console.log(error);  
+});
