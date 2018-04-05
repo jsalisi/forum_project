@@ -50,7 +50,7 @@ var loadPosts = () => {
 * @param {string} user - A username
 * @param {string} topic_post - A post created by the user
 */
-var addNewPost = (user, topic_post) => {
+var addNewPost = (user, topic_title, topic_post) => {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
       if (err) {
@@ -58,6 +58,7 @@ var addNewPost = (user, topic_post) => {
       } else {
         doc.addRow(GD_WORKSHEET, {
           user: user,
+          topic: topic_title,
           post: topic_post
         }, function(err) {
           if (err) {
@@ -142,7 +143,7 @@ var parseUserCreds = (login, userList) => {
   for (var i=0; i<userList.length; i++) {
     if ((login.username === userList[i].username) && (login.password === userList[i].password)) {
       return return_statements.success;
-      break;  
+      break;
     }
   }
   return return_statements.failed;
