@@ -1,15 +1,15 @@
 /* body wrapper */
 #bodyWrapper {
-    top: 0; left: 0;
-    position: static;
+      top: 0; left: 0;
+      position: static;
     width: 98.2vw;
 }
 
 
 /* credentials */
 #credentials {
-    top: 0; left:0;
-    height: 5vh;   width: 100%;
+      top: 0; left:0;
+      height: 5vh;   width: 100%;
     margin: auto;
     position: absolute;
     z-index: 9999;
@@ -57,7 +57,7 @@
         right: 1%;
     position: absolute;
     font-size: 90%;
-    
+
 }
 
 /*TODO: adjust images to fit different screen sizes*/
@@ -176,7 +176,7 @@
     display: inline-block;
 }
 .topicContainer {
-        width: 75%; 
+        width: 75%;
         padding-left: 0.5%;
     background-color: black;
     display: inline-block;
@@ -193,47 +193,3 @@
     display: inline-block;
     color: black
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

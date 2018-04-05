@@ -12,7 +12,6 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 
-
 // Set views folder to be available for use
 // Set the view engine to use .hbs files for the template format
 app.set('views', './views');
