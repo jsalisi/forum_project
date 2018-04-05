@@ -147,8 +147,9 @@
 
 /* forum type selections */
 #discussSelect {
-        left: 5%; top: 35vh;
-        width: 65%; height: 100%;
+        left: 0; right: 0;
+        top: 35vh;
+        width: 80%; height: 100%;
     position: absolute;
     margin: auto;
     background-color: aliceblue;
@@ -180,54 +181,15 @@
     background-color: black;
     display: inline-block;
 }
-.statsContainer {
-        width: 10%;
-    background-color: white;
-    display: inline-block;
-    color: black;
+.textContainer {
+    height: 80%;
 }
-.latestContainer {
-    width: 13.6%;
-    background-color: white;
-    display: inline-block;
-    color: black;
+.Title {
+    width: 99%;
 }
-
-/* Topics Styling */
-.Thread {
-        height: 4%; width: 99.7%;
-    margin: 0.2%;
-    background-color: darkslategrey;
-    color: white;
-    display: inline-block;
+.Text {
+    width: 98.7%; height: 50%;
 }
-.threadContainer {
-        width: 75%; 
-        padding-left: 0.5%;
-    color:white;
-    display: inline-block;
-}
-.countContainer {
-        width: 10%;
-    display: inline-block;
-    color: white;
-}
-.recentContainer {
-        width: 13.6%;
-    display: inline-block;
-    color: white;
-}
-
-.threadInfo {
-    display: block;
-}
-.statsInfo {
-    display: block;
-}
-.recentInfo {
-    display: block;
-}
-
 
 
 
