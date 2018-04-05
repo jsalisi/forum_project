@@ -13,7 +13,7 @@ database.loadPosts().then((posts) => {
 });
 
 /* Testing add user functionality */
-database.addNewUser('stephen', 'stevepass6', 'admin').then((result) => {
+database.addNewUser('stephen', 'stevepass10', 'standard').then((result) => {
   console.log(result);
 });
 
