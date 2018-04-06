@@ -192,7 +192,17 @@
 }
 
 
-
+/* register styling */
+.regContainer {
+    height: 80%;
+    text-align: center;
+}
+#new_user {
+        display: inline-block;
+}
+#new_pass {
+        display: inline-block;
+}
 
 
 

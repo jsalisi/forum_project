@@ -40,7 +40,7 @@ app.get('/home', (request, response) => {
   });
 });
 
-// rendering monhun topic list page
+/*// rendering monhun topic list page
 app.get('/monhun', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('monhun.hbs', {
@@ -64,17 +64,14 @@ app.get('/community', (request, response) => {
   }).catch((error) => {
     response.send(error);
   });
-});
+});*/
 
 // rendering post topic list page
 app.get('/postThread', (request, response) => {
-    response.render('postThread.hbs', {
-        title: 'Title/Thread Starter',
-        stats: 'Replies/Views',
-        recent: 'Last Post By'
-    })
+    response.render('postThread.hbs', {})
 });
 
+// posting thread to gs
 app.post('/postResult', urlencodedParser, (request, response) => {
     database.addNewPost('stephen', request.body.topTitle, request.body.topContent).then((result) => {
       console.log(result);
@@ -86,6 +83,25 @@ app.post('/postResult', urlencodedParser, (request, response) => {
         stats: '',
         recent: 'Last Post'
     });
+})
+
+app.get('/register', (request, response) => {
+    response.render('register.hbs', {})
+});
+app.post('/postReg', urlencodedParser, (request, response) => {
+    if (request.body.new_pass === request.body.confirm_pass){
+        database.addNewUser(request.body.new_user, request.body.new_pass, 'standard').then((result) => {
+          console.log(result);
+        });
+        response.render('index.hbs', {
+            title: 'Title',
+            stats: '',
+            recent: 'Last Post'
+        });
+    } else {
+        response.render('register.hbs', {})
+        console.log("no accounts registered")
+    }
 })
 
 

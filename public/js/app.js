@@ -1,7 +1,9 @@
 // testing functionality
 
-var button = document.getElementById("register");
-
-button.addEventListener("click", function() {
-  alert("WORKS");
+document.getElementById("register").addEventListener("click", function() {
+  location.href = "/register";
 });
+
+document.getElementById("makethread").onclick = function () {
+    location.href = "/postThread";
+};
