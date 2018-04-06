@@ -33,7 +33,10 @@ app.get('/home', (request, response) => {
     response.render('index.hbs', {
         title: 'Title/Thread Starter',
         stats: 'Replies/Views',
-        recent: 'Last Post By'
+        recent: 'Last Post By',
+        topic_title: 'NEW TEST TOPIC',
+        username: 'Justin',
+        topic_link: '/postThread'
     });
   }).catch((error) => {
     response.send(error);
@@ -88,6 +91,7 @@ app.post('/postResult', urlencodedParser, (request, response) => {
 app.get('/register', (request, response) => {
     response.render('register.hbs', {})
 });
+
 app.post('/postReg', urlencodedParser, (request, response) => {
     if (request.body.new_pass === request.body.confirm_pass){
         database.addNewUser(request.body.new_user, request.body.new_pass, 'standard').then((result) => {
@@ -96,7 +100,10 @@ app.post('/postReg', urlencodedParser, (request, response) => {
         response.render('index.hbs', {
             title: 'Title',
             stats: '',
-            recent: 'Last Post'
+            recent: 'Last Post',
+            topic_title: 'Kappa',
+            username: "koopa",
+            topic_link: '/home'
         });
     } else {
         response.render('register.hbs', {})
