@@ -7,38 +7,37 @@
 
     <body>
         <div id='bodybg'></div>
-        
+
         <div id='bodyWrapper'>
             {{> topBanner}}
 
             <div id='discussSelect'>
                <div id='monhun' class='topic'>
-                   
+
                    <div class='topicTitle'>
                        <b>Post New Thread</b>
                    </div>
-                   
+
                    <form class="textContainer" action='/postResult' method='POST'>
-                       
+
                        <label>Topic:</label>
                        <input class="Title" id='topTitle' name='topTitle' type="text">
                        <br>
-                       
+
                        <br>
                        <label>Content:</label>
                        <textarea class="Text" id='topPost' name='topContent'></textarea>
-                       
+
                        <br>
-                       <input type="submit">
                    </form>
-                   
-                   
+
+                   <input type="submit">
                 </div>
             </div>
-            
+
         </div>
-        
+
         <script src='js/app.js'></script>
-        
+
     </body>
 </html>

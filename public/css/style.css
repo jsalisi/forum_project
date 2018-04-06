@@ -91,11 +91,12 @@
 /*TODO: make bg static on the back while page scrolls*/
 #bodybg {
     left: 0; top: 0;
-    height: 140vh;
+    height: 125vh;
     width: 99vw;
-    background-image: url('/img/MH_bg.png');
-    background-position: top center;
+    background-image: url('/img/bodybg4.jpg');
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
 }
 
@@ -122,8 +123,8 @@
 }
 
 #forum_home:link, #forum_home:visited {
-        line-height: 190%;
-    background-color: #f44336;
+        line-height: 175%;
+    background-color: darkslategrey;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -134,7 +135,7 @@
 }
 
 #forum_home:hover, #forum_home:active {
-  background-color: red;
+  background-color: slategrey;
   font-size: 125%;
 }
 
@@ -171,8 +172,8 @@
 
 /* forum type selections */
 #discussSelect {
-        left: 5%; top: 35vh;
-        width: 70%; height: auto;
+        left: 17.5%; top: 27vh;
+        width: 65%; height: auto;
     position: absolute;
     margin: auto;
     background-color: aliceblue;
