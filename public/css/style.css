@@ -74,13 +74,17 @@
 
 #logo {
   height: 90%;
-  width: 40%;
+  width: 14%;
   background-image: url("/img/Monster_Hunter_Logo.png");
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
   left: 33%;
   top: 5%;
+}
+
+#logo:hover {
+  cursor: pointer;
 }
 
 /*body background*/
