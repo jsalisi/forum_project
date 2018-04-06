@@ -48,28 +48,19 @@ var loadPosts = () => {
 * Appends a post to the spreadsheet
 *
 * @param {string} user - A username
+* @param {string} topic - A title for the post
 * @param {string} topic_post - A post created by the user
 */
-<<<<<<< HEAD
 var addNewPost = (user, topic, topic_post) => {
-=======
-var addNewPost = (user, topic_title, topic_post) => {
->>>>>>> 22b07270992b98f821f26e5c431d37146d73b8ba
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
       if (err) {
         reject(err);
       } else {
         doc.addRow(GD_WORKSHEET, {
-<<<<<<< HEAD
             user: user,
             topic: topic,
             post: topic_post
-=======
-          user: user,
-          topic: topic_title,
-          post: topic_post
->>>>>>> 22b07270992b98f821f26e5c431d37146d73b8ba
         }, function(err) {
           if (err) {
             reject(err);
