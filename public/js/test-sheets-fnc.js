@@ -20,7 +20,7 @@ database.addNewUser('stephen', 'stevepass6', 'admin').then((result) => {
 var test_post = "Hi, my name is Stephen!"
 
 /* Testing add post functionality */
-database.addNewPost('stephen', test_post).then((result) => {
+database.addNewPost('stephen', 'asdf', test_post).then((result) => {
   console.log(result);
 }).catch((error) => {
   console.log(error);

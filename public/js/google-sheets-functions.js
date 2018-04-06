@@ -50,15 +50,16 @@ var loadPosts = () => {
 * @param {string} user - A username
 * @param {string} topic_post - A post created by the user
 */
-var addNewPost = (user, topic_post) => {
+var addNewPost = (user, topic, topic_post) => {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
       if (err) {
         reject(err);
       } else {
         doc.addRow(GD_WORKSHEET, {
-          user: user,
-          post: topic_post
+            user: user,
+            topic: topic,
+            post: topic_post
         }, function(err) {
           if (err) {
             reject(err);

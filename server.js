@@ -1,10 +1,12 @@
 // Requiring additional functions
 const express = require('express');
 const request = require('request');
+const bodyParser = require('body-parser');
 const hbs = require('hbs');
 
 // Importing file to access the Google Spreadsheet database
 const database = require('./public/js/google-sheets-functions.js');
+const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
 // Initializing express
 var app = express();
@@ -30,9 +32,9 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('index.hbs', {
-        title: 'Title',
-        stats: '',
-        recent: 'Last Post'
+        title: 'Title/Thread Starter',
+        stats: 'Replies/Views',
+        recent: 'Last Post By'
     });
   }).catch((error) => {
     response.send(error);
@@ -67,18 +69,25 @@ app.get('/community', (request, response) => {
 
 // rendering post topic list page
 app.get('/postThread', (request, response) => {
-  database.loadPosts().then((post) => {
     response.render('postThread.hbs', {
-        monhun_post: post[0].post,
         title: 'Title/Thread Starter',
         stats: 'Replies/Views',
         recent: 'Last Post By'
-    });
-  }).catch((error) => {
-    response.send(error);
-  });
+    })
 });
 
+app.post('/postResult', urlencodedParser, (request, response) => {
+    database.addNewPost('stephen', request.body.topTitle, request.body.topContent).then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    })
+    response.render('index.hbs', {
+        title: 'Title',
+        stats: '',
+        recent: 'Last Post'
+    });
+})
 
 
 //****************************Server***************************************//

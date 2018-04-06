@@ -157,7 +157,7 @@
     background-color: aliceblue;
 }
 .topic {
-        width: 96%; height: 25%;
+        width: 96%; height: 93%;
     border:1px solid black;
     margin: 2%;
 }
@@ -168,7 +168,7 @@
     color: white;
 }
 .topicBanner {
-        width: 99.7%; height: 8%;
+        width: 99.7%; height: 2%;
     margin: 0.2%;
     background-color: dimgrey;
     color: white;
@@ -194,7 +194,43 @@
     color: black
 }
 
+/* Topics Styling */
+.Thread {
+        height: 4%; width: 99.7%;
+    margin: 0.2%;
+    background-color: darkslategrey;
+    color: white;
+    display: inline-block;
+}
+.threadContainer {
+        width: 75%; 
+        padding-left: 0.5%;
+    color:white;
+    display: inline-block;
+}
+.countContainer {
+        width: 10%;
+    display: inline-block;
+    color: white;
+}
+.recentContainer {
+        width: 13.6%;
+    display: inline-block;
+    color: white;
+}
 
+.threadInfo {
+    display: block;
+}
+.statsInfo {
+    display: block;
+}
+.Text {
+    width: 98.7%; height: 50%;
+}
+.recentInfo {
+    display: block;
+}
 
 
 

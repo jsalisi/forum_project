@@ -18,13 +18,15 @@
                        <b>Post New Thread</b>
                    </div>
                    
-                   <form class="textContainer" action="/home">
-                       Topic: <input class="Title" type="text">
+                   <form class="textContainer" action='/postResult' method='POST'>
+                       
+                       <label>Topic:</label>
+                       <input class="Title" id='topTitle' name='topTitle' type="text">
                        <br>
                        
                        <br>
-                       
-                       Content: <textarea class="Text" rows="4" cols="50" name="comment" form="usrform"></textarea>
+                       <label>Content:</label>
+                       <textarea class="Text" id='topPost' name='topContent'></textarea>
                        
                        <br>
                        <input type="submit">
@@ -35,7 +37,5 @@
             </div>
             
         </div>
-
-        <script src='js/app.js'></script>
     </body>
 </html>
