@@ -48,6 +48,7 @@ var loadPosts = () => {
 * Appends a post to the spreadsheet
 *
 * @param {string} user - A username
+* @param {string} topic - A title for the post
 * @param {string} topic_post - A post created by the user
 */
 var addNewPost = (user, topic, topic_post) => {
