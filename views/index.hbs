@@ -9,25 +9,14 @@
         <div id='bodybg'></div>
 
         <div id='bodyWrapper'>
-            
+
             {{> topBanner}}
 
 
             <div id='discussSelect'>
                 <div id='monhun' class='topic'>
-                    <div class='topicTitle'>
-                        <b onclick="window.location='/monhun';">Monster Hunter</b>
-                    </div>
+                    <b><a id="topicTitle" href='/monhun'>Monster Hunter</a></b>
                     {{> topicListTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
                     {{> threadLinkTemp}}
                     {{> threadLinkTemp}}
                     {{> threadLinkTemp}}
@@ -46,7 +35,7 @@
 
 
             {{> popTopic}}
-                        
+
         </div>
         <script src='js/app.js'></script>
     </body>

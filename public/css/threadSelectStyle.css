@@ -55,7 +55,7 @@
 #loginBut {
         right: 1%;
     position: absolute;
-    font-size: 90%;  
+    font-size: 90%;
 }
 
 /*TODO: adjust images to fit different screen sizes*/
@@ -70,13 +70,24 @@
     position: absolute;
 }
 
+#logo {
+  height: 90%;
+  width: 40%;
+  background-image: url("/img/Monster_Hunter_Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 33%;
+  top: 5%;
+}
+
 /*body background*/
 /*TODO: make bg static on the back while page scrolls*/
 #bodybg {
     left: 0; top: 0;
     height: 140vh;
     width: 99vw;
-    background-image: url('/img/bodybg2.jpg');
+    background-image: url('/img/MH_bg.png');
     background-position: top center;
     background-size: cover;
     position: absolute;
@@ -91,28 +102,28 @@
     position: absolute;
 }
 
-
 #searchMenu {
         left: 1%;
         height: 100%; width: 12%;
     position: absolute;
 }
-.forumSelect {
-        height: 100%;
-    display: inline-block;
-    margin: auto;
-    text-align: center;
+
+#forum_home:link, #forum_home:visited {
+        line-height: 190%;
+    background-color: #f44336;
     color: white;
-}
-#recent {
-        left: 5%;
-    position: absolute;
-}
-#forum {
-        right: 12%;
-    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 125%;
 }
 
+#forum_home:hover, #forum_home:active {
+  background-color: red;
+  font-size: 125%;
+}
 
 #searchBox {
         right: 1%;
@@ -176,7 +187,7 @@
     display: inline-block;
 }
 .topicContainer {
-        width: 75%; 
+        width: 75%;
         padding-left: 0.5%;
     background-color: black;
     display: inline-block;
@@ -203,39 +214,3 @@
 #new_pass {
         display: inline-block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

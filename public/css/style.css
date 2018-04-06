@@ -72,13 +72,24 @@
     position: absolute;
 }
 
+#logo {
+  height: 90%;
+  width: 40%;
+  background-image: url("/img/Monster_Hunter_Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 33%;
+  top: 5%;
+}
+
 /*body background*/
 /*TODO: make bg static on the back while page scrolls*/
 #bodybg {
     left: 0; top: 0;
     height: 140vh;
     width: 99vw;
-    background-image: url('/img/bodybg2.jpg');
+    background-image: url('/img/MH_bg.png');
     background-position: top center;
     background-size: cover;
     position: absolute;
@@ -100,22 +111,28 @@
         height: 100%; width: 12%;
     position: absolute;
 }
-.forumSelect {
-        height: 100%;
-    display: inline-block;
-    margin: auto;
-    text-align: center;
-    color: white;
-}
+
 #recent {
         left: 5%;
     position: absolute;
 }
-#forum {
-        right: 12%;
-    position: absolute;
+
+#forum_home:link, #forum_home:visited {
+        line-height: 190%;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 125%;
 }
 
+#forum_home:hover, #forum_home:active {
+  background-color: red;
+  font-size: 125%;
+}
 
 #searchBox {
         right: 1%;
@@ -151,21 +168,30 @@
 /* forum type selections */
 #discussSelect {
         left: 5%; top: 35vh;
-        width: 65%; height: 100%;
+        width: 65%; height: auto;
     position: absolute;
     margin: auto;
     background-color: aliceblue;
+}
+#topicTitle:link, #topicTitle:visited {
+    text-decoration: none;
+    font-size: 150%;
+}
+#topicTitle:hover, #topicTitle:active {
+    text-decoration: underline;
+    font-size: 150%;
+}
+a.threadTitle:link, a.threadTitle:visited {
+    text-decoration: none;
+}
+a.threadTitle:hover, a.threadTitle:active {
+    text-decoration: underline;
+    cursor: pointer;
 }
 .topic {
         width: 96%; height: 93%;
     border:1px solid black;
     margin: 2%;
-}
-.topicTitle {
-        padding: .5%;
-    margin: 0.2%;
-    background-color: darkgrey;
-    color: white;
 }
 .topicBanner {
         width: 99.7%; height: 2%;
@@ -196,14 +222,14 @@
 
 /* Topics Styling */
 .Thread {
-        height: 4%; width: 99.7%;
+        height: auto; width: 99.7%;
     margin: 0.2%;
     background-color: darkslategrey;
     color: white;
     display: inline-block;
 }
 .threadContainer {
-        width: 75%; 
+        width: 75%;
         padding-left: 0.5%;
     color:white;
     display: inline-block;
@@ -231,6 +257,10 @@
     display: block;
 }
 
+/* Create post button */
+#makethread {
+  margin: 1.5%;
+}
 
 
 
