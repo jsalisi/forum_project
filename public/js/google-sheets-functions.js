@@ -42,9 +42,9 @@ var loadPosts = () => {
               var temp = {thread_name: rows[i].threadname,
                           sheet_num: rows[i].sheetnum,
                           started_by: rows[i].startedby,
-                          start_date: rows[i].startdate,
-                          last_post: rows[i].lastpost,
-                          post_date: rows[i].postdate,
+                          post_date: rows[i].initpostdate,
+                          last_poster: rows[i].lastposter,
+                          last_post_date: rows[i].lastpostdate,
                           total_posts: rows[i].totalposts,
                           topic_link: rows[i].link};
 
