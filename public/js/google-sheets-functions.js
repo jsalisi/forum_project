@@ -10,7 +10,7 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 
 // Sheet Number
 const USERS_WORKSHEET = 1;
-const THREAD_WORKSHEET = 2;
+// const THREAD_WORKSHEET = 2; //removed and will use a parameter instead.
 
 /*
 ** Spreadsheet Notes **
@@ -26,27 +26,42 @@ const THREAD_WORKSHEET = 2;
 *
 * @resolve {object} rows - contains the data from the spreadsheet
 */
-var loadPosts = () => {
+var loadPosts = (worksheet) => {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
       if (err) {
         reject(err);
       } else {
-        doc.getRows(THREAD_WORKSHEET, function(err, rows) {
+        doc.getRows(worksheet, function(err, rows) {
           if (err) {
             reject(err);
-          } else {
+          } else if (worksheet == 2){
             var mdata = [];
 
             for (i=0; i < rows.length; i++) {
+              var date1 = rows[i].initpostdate.split(' ');
+              var date2 = rows[i].lastpostdate.split(' ')
               var temp = {thread_name: rows[i].threadname,
                           sheet_num: rows[i].sheetnum,
                           started_by: rows[i].startedby,
-                          start_date: rows[i].startdate,
-                          last_post: rows[i].lastpost,
-                          post_date: rows[i].postdate,
+                          post_date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
+                          last_poster: rows[i].lastposter,
+                          last_post_date: `${date2[1]} ${date2[2]}, ${date2[3]} ${date2[4]}`,
                           total_posts: rows[i].totalposts,
                           topic_link: rows[i].link};
+
+              mdata.push(temp);
+            }
+            resolve(mdata);
+          } else if (worksheet > 2) {
+            var mdata = [];
+
+            for (i=0; i < rows.length; i++) {
+              var date1 = rows[i].date.split(' ');
+              var temp = {post_num: rows[i].postnum,
+                          username: rows[i].username,
+                          date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
+                          post: rows[i].post};
 
               mdata.push(temp);
             }

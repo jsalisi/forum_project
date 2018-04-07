@@ -27,9 +27,10 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 
 //*********************************Rendering*******************************//
 
-// rendering home page
+// rendering home page.
+// refer to google-sheets-functions.js for .loadPosts()
 app.get('/home', (request, response) => {
-  database.loadPosts().then((post) => {
+  database.loadPosts(2).then((post) => {
     console.log('Loading posts...');
     response.render('index.hbs', {thread: post});
   }).catch((error) => {
@@ -81,15 +82,25 @@ app.param('name', (request, response, next, name) => {
   next();
 });
 
+
+//NOTE: post_sheet has other data on it that can be used to show posts.
+//      only username and post is used so far.
+//      refer to loadPosts() in google-sheets-functions.js
 app.get('/:name', (request, response) => {
-  response.render('discussion_thread.hbs', {
-    title: 'Title',
-    stats: '',
-    recent: 'Last Post',
-    username: 'justin',
-    number: '1',
-    userpost: 'this is a meme',
-    topic: request.name
+  database.loadPosts(2).then((threadlist) => { //get the sheetnumber using param
+    for (var x in threadlist) {
+      if (threadlist[x].topic_link == response.req.params.name) {
+        return threadlist[x].sheet_num; //returns sheet number
+      }
+    }
+  }).then((sheet_number) => {
+    return database.loadPosts(sheet_number) //gets the sheet and return
+  }).then((post_sheet) => {
+    response.render('discussion_thread.hbs', {
+      topic: response.req.params.name,
+      posts: post_sheet})
+  }).catch((error) => {
+    response.send(error);
   });
 });
 
