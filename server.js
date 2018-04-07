@@ -27,7 +27,8 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 
 //*********************************Rendering*******************************//
 
-// rendering home page
+// rendering home page.
+// refer to google-sheets-functions.js for .loadPosts()
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
     console.log('Loading posts...');
