@@ -50,6 +50,8 @@ var loadPosts = () => {
 
               mdata.push(temp);
             }
+            console.log(rows);
+            console.log(mdata);
             resolve(mdata);
           }
         });
