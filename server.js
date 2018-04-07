@@ -30,14 +30,7 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 // rendering home page
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
-    response.render('index.hbs', {
-        title: 'Title/Thread Starter',
-        stats: 'Replies/Views',
-        recent: 'Last Post By',
-        topic_title: 'NEW TEST TOPIC',
-        username: 'Justin',
-        topic_link: '/postThread'
-    });
+    response.render('index.hbs', {thread: post});
   }).catch((error) => {
     response.send(error);
   });
@@ -72,6 +65,10 @@ app.get('/community', (request, response) => {
 // rendering post topic list page
 app.get('/postThread', (request, response) => {
     response.render('postThread.hbs', {})
+});
+
+app.get('/showthread', (request, response) => {
+    response.render('showthread.hbs', {})
 });
 
 // posting thread to gs

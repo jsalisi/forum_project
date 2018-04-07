@@ -36,7 +36,16 @@ var loadPosts = () => {
           if (err) {
             reject(err);
           } else {
-            resolve(rows);
+            var mdata = [];
+
+            for (i=0; i < rows.length; i++) {
+              var temp = {};
+              
+              temp['topic_title'] = rows[i].topic;
+              temp['username'] = rows[i].user;
+              mdata.push(temp);
+            }
+            resolve(mdata);
           }
         });
       }

@@ -17,18 +17,9 @@
                 <div id='monhun' class='topic'>
                     <b><a id="topicTitle" href='/monhun'>Monster Hunter</a></b>
                     {{> topicListTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
-                    {{> threadLinkTemp}}
+                    {{#each thread}}
+                        {{> threadLinkTemp}}
+                    {{/each}}
                 </div>
                 <button id="makethread">Create New Thread</button>
             </div>
