@@ -14,10 +14,9 @@
 
     <div id="post_div">
       <b id="topicTitle" href='/monhun'>{{topic}}</b>
-        {{> threadPostTemp}}
-        {{> threadPostTemp}}
-        {{> threadPostTemp}}
-        {{> threadPostTemp}}
+        {{#each posts}}
+          {{> threadPostTemp}}
+        {{/each}}
     </div>
 
   </body>
