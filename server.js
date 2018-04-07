@@ -76,7 +76,8 @@ app.post('/postReg', urlencodedParser, (request, response) => {
 });
 
 app.param('name', (request, response, next, name) => {
-  // TODO: stuff
+  var topic_title = name.replace(/_/g, ' ');
+  request.name = topic_title;
   next();
 });
 
@@ -88,7 +89,7 @@ app.get('/:name', (request, response) => {
     username: 'justin',
     number: '1',
     userpost: 'this is a meme',
-    topic: 'How do I play this game?'
+    topic: request.name
   });
 });
 
