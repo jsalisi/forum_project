@@ -30,61 +30,38 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 // rendering home page
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
+    console.log('Loading posts...');
     response.render('index.hbs', {thread: post});
-    console.log(post);
   }).catch((error) => {
     response.send(error);
   });
 });
-
-/*// rendering monhun topic list page
-app.get('/monhun', (request, response) => {
-  database.loadPosts().then((post) => {
-    response.render('monhun.hbs', {
-        title: 'Title/Thread Starter',
-        stats: 'Replies/Views',
-        recent: 'Last Post By'
-    });
-  }).catch((error) => {
-    response.send(error);
-  });
-});
-
-// rendering community topic list page
-app.get('/community', (request, response) => {
-  database.loadPosts().then((post) => {
-    response.render('community.hbs', {
-        title: 'Title/Thread Starter',
-        stats: 'Replies/Views',
-        recent: 'Last Post By'
-    });
-  }).catch((error) => {
-    response.send(error);
-  });
-});*/
 
 // rendering post topic list page
 app.get('/postThread', (request, response) => {
     response.render('postThread.hbs', {})
 });
 
-app.get(`/showthread=?${threadnumber}`, (request, response) => {
+app.get('/showthread', (request, response) => {
     response.render('showthread.hbs', {})
 });
 
 // posting thread to gs
 app.post('/postResult', urlencodedParser, (request, response) => {
-    database.addNewPost('stephen', request.body.topTitle, request.body.topContent).then((result) => {
-      console.log(result);
+    var datetime = new Date();
+    database.addNewThread('justin', request.body.topTitle, request.body.topContent, datetime).then((results) => {
+      database.addNewPost(results.user, datetime, results.thread_post, results.thread_num).then((result) => {
+        console.log(result);
+        response.redirect('/home');
+      }).catch((error) => {
+        console.log(error);
+      });
     }).catch((error) => {
       console.log(error);
-    })
-    response.render('index.hbs', {
-        title: 'Title',
-        stats: '',
-        recent: 'Last Post'
     });
-})
+});
+
+// TODO: Post to thread
 
 app.get('/register', (request, response) => {
     response.render('register.hbs', {})
@@ -95,14 +72,7 @@ app.post('/postReg', urlencodedParser, (request, response) => {
         database.addNewUser(request.body.new_user, request.body.new_pass, 'standard').then((result) => {
           console.log(result);
         });
-        response.render('index.hbs', {
-            title: 'Title',
-            stats: '',
-            recent: 'Last Post',
-            topic_title: 'Kappa',
-            username: "koopa",
-            topic_link: '/home'
-        });
+        response.redirect('/home');
     } else {
         response.render('register.hbs', {})
         console.log("no accounts registered")

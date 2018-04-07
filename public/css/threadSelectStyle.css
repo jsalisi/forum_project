@@ -1,73 +1,92 @@
 /* body wrapper */
-#bodyWrapper {
-        top: 0; left: 0;
-    position: static;
-    width: 98.2vw;
-}
 
+#bodyWrapper {
+  top: 0;
+  left: 0;
+  position: static;
+  width: 98.2vw;
+}
 
 /* credentials */
+
 #credentials {
-        top: 0; left:0;
-        height: 5vh;   width: 100%;
-    margin: auto;
-    position: absolute;
-    z-index: 9999;
+  top: 0;
+  left: 0;
+  height: 5vh;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  z-index: 9999;
 }
+
 #welcome {
-        top: 0%; bottom: 0%;
-        left: 2%;
-        height: 50%; width: 30%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    color: white;
-    font-size: 100%;
+  top: 0%;
+  bottom: 0%;
+  left: 2%;
+  height: 50%;
+  width: 30%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  color: white;
+  font-size: 100%;
 }
 
 #loginInput {
-        top: 0%;
-        right: 1%;
-        height: 48%; width: 20%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    font-size: 100%;
+  top: 0%;
+  right: 1%;
+  height: 48%;
+  width: 20%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  font-size: 100%;
 }
+
 #loginCheck {
-        bottom: 0%;
-        right: 2%;
-        height: 48%; width: 19%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    font-size: 105%;
+  bottom: 0%;
+  right: 2%;
+  height: 48%;
+  width: 19%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  font-size: 105%;
 }
+
 .credField {
-    margin: 1%;
-    display: inline-block;
-    width: 44%; height: 60%;
-    font-size: 100%;
+  margin: 1%;
+  display: inline-block;
+  width: 44%;
+  height: 60%;
+  font-size: 100%;
 }
+
 #remember {
-    width: 4%; height: 50%;
+  width: 4%;
+  height: 50%;
 }
+
 #loginBut {
-        right: 1%;
-    position: absolute;
-    font-size: 90%;
+  right: 1%;
+  position: absolute;
+  font-size: 90%;
 }
 
 /*TODO: adjust images to fit different screen sizes*/
+
 /* banner */
+
 #banner {
-    left: 0; top: 0;
-    height: 20vh;   width: 100%;
-    background-image: url("/img/banner1.jpg");
-    background-position: top center;
-    background-size: cover;
-    display: inline-block;
-    position: absolute;
+  left: 0;
+  top: 0;
+  height: 20vh;
+  width: 100%;
+  background-image: url("/img/banner1.jpg");
+  background-position: top center;
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
 }
 
 #logo {
@@ -86,43 +105,50 @@
 }
 
 /*body background*/
+
 /*TODO: make bg static on the back while page scrolls*/
+
 #bodybg {
-    left: 0; top: 0;
-    height: 125vh;
-    width: 99vw;
-    background-image: url('/img/bodybg4.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
+  left: 0;
+  top: 0;
+  height: 125vh;
+  width: 98.9vw;
+  background-image: url('/img/bodybg4.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  position: absolute;
 }
 
 /* search bar */
+
 #searchBar {
-        left: 0; top: 20vh;
-        height: 5vh;   width: 100%;
-    background-color: lightgrey;
-    display: inline-block;
-    position: absolute;
+  left: 0;
+  top: 20vh;
+  height: 5vh;
+  width: 100%;
+  background-color: lightgrey;
+  display: inline-block;
+  position: absolute;
 }
 
 #searchMenu {
-        left: 1%;
-        height: 100%; width: 12%;
-    position: absolute;
+  left: 1%;
+  height: 100%;
+  width: 12%;
+  position: absolute;
 }
 
 #forum_home:link, #forum_home:visited {
-        line-height: 190%;
-    background-color: darkslategrey;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    padding-left: 10%;
-    padding-right: 10%;
-    font-size: 125%;
+  line-height: 190%;
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 125%;
 }
 
 #forum_home:hover, #forum_home:active {
@@ -131,20 +157,23 @@
 }
 
 #searchBox {
-        right: 1%;
-        height: 100%; width: 30%;
-    position: absolute;
-}
-#searchType {
-        top: 0; bottom: 0;
-        right: 10%;
-        height: 65%;
-    position: absolute;
-    margin: auto
+  right: 1%;
+  height: 100%;
+  width: 30%;
+  position: absolute;
 }
 
+#searchType {
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  height: 65%;
+  position: absolute;
+  margin: auto
+}
 
 /* hot topics */
+
 /* #hotTopic {
         right: 1%; top: 35vh;
         width: 15%; height: 60vh;
@@ -160,63 +189,82 @@
     font-size: 200%;
 } */
 
-
 /* forum type selections */
+
 #discussSelect {
-        left: 0; right: 0;
-        top: 30vh;
-        width: 60vw; height: 60vh;
-    position: absolute;
-    margin: auto;
-    background-color: aliceblue;
+  left: 0;
+  right: 0;
+  top: 30vh;
+  width: 60vw;
+  height: 60vh;
+  position: absolute;
+  margin: auto;
+  background-color: aliceblue;
 }
+
+#thread_submit {
+  position: absolute;
+  bottom: 10%;
+}
+
 .topic {
-        width: 96%; height: 100%;
-    margin: 2%;
+  width: 96%;
+  height: 100%;
+  margin: 2%;
 }
+
 .topicTitle {
-        height: 8%;
-        padding: .5%;
-    margin: 0.2%;
-    background-color: darkgrey;
-    color: white;
-    font-size: 200%;
+  height: 8%;
+  padding: .5%;
+  margin: 0.2%;
+  background-color: darkgrey;
+  color: white;
+  font-size: 200%;
 }
 
 /* Topics Banner Styling */
+
 .topicBanner {
-        width: 99.7%; height: 2%;
-    margin: 0.2%;
-    background-color: dimgrey;
-    color: white;
-    display: inline-block;
+  width: 99.7%;
+  height: 2%;
+  margin: 0.2%;
+  background-color: dimgrey;
+  color: white;
+  display: inline-block;
 }
+
 .topicContainer {
-        width: 75%;
-        padding-left: 0.5%;
-    background-color: black;
-    display: inline-block;
+  width: 75%;
+  padding-left: 0.5%;
+  background-color: black;
+  display: inline-block;
 }
+
 .textContainer {
   height: 65%;
   margin-top: 5%;
 }
+
 .Title {
-    width: 99%;
-}
-.Text {
-    width: 98.7%; height: 50%;
+  width: 99%;
 }
 
+.Text {
+  width: 98.7%;
+  height: 50%;
+}
 
 /* register styling */
+
 .regContainer {
-    height: 80%;
-    text-align: center;
+  height: 80%;
+  text-align: center;
 }
+
 #new_user {
-        display: inline-block;
+  display: inline-block;
 }
+
 #new_pass {
-        display: inline-block;
+  display: inline-block;
 }

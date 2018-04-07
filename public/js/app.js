@@ -1,4 +1,4 @@
-// testing functionality
+// changing pages
 
 document.getElementById("register").addEventListener("click", function() {
   location.href = "/register";

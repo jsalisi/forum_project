@@ -10,7 +10,7 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 
 // Sheet Number
 const USERS_WORKSHEET = 1;
-const GD_WORKSHEET = 2;
+const THREAD_WORKSHEET = 2;
 
 /*
 ** Spreadsheet Notes **
@@ -32,7 +32,7 @@ var loadPosts = () => {
       if (err) {
         reject(err);
       } else {
-        doc.getRows(GD_WORKSHEET, function(err, rows) {
+        doc.getRows(THREAD_WORKSHEET, function(err, rows) {
           if (err) {
             reject(err);
           } else {
@@ -46,7 +46,7 @@ var loadPosts = () => {
                           last_post: rows[i].lastpost,
                           post_date: rows[i].postdate,
                           total_posts: rows[i].totalposts};
-              
+
               mdata.push(temp);
             }
             resolve(mdata);
@@ -58,29 +58,87 @@ var loadPosts = () => {
 }
 
 /*
-* Appends a post to the spreadsheet
+* Appends a thread as a worksheet to the spreadsheet
 *
 * @param {string} user - A username
 * @param {string} topic - A title for the post
-* @param {string} topic_post - A post created by the user
+* @param {string} thread_post - Initial thread post
 */
-var addNewPost = (user, topic, topic_post) => {
+var addNewThread = (user, topic, thread_post, date) => {
   return new Promise((resolve, reject) => {
     doc.useServiceAccountAuth(creds, function(err) {
       if (err) {
         reject(err);
       } else {
-        doc.addRow(GD_WORKSHEET, {
-            user: user,
-            topic: topic,
-            post: topic_post
-        }, function(err) {
+        doc.addWorksheet({
+            title: topic
+        }, function(err, sheet) {
           if (err) {
             reject(err);
           } else {
-            resolve('New post added');
+            sheet.setHeaderRow(['post_num', 'username', 'date', 'post'])
           }
         });
+        doc.getRows(THREAD_WORKSHEET, (err, rows) => {
+          if (err) {
+            reject(err);
+          } else {
+            thread_num = rows.length + 3;
+            doc.addRow(THREAD_WORKSHEET, {
+              thread_name: topic,
+              started_by: user,
+              sheet_num: thread_num,
+              init_post_date: date
+            }, function(err) {
+              if (err) {
+                reject(err);
+              } else {
+                resolve({
+                  user: user,
+                  thread_post: thread_post,
+                  thread_num: thread_num
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+  });
+}
+
+/*
+* Appends a post to the spreadsheet
+*
+* @param {string} user - A username
+* @param {string} date - Date post was created
+* @param {string} thread_post - A new thread created by the user
+* @param {string} thread_num - The thread id number represented as a string
+*/
+var addNewPost = (user, date, thread_post, thread_num) => {
+  return new Promise((resolve, reject) => {
+    doc.useServiceAccountAuth(creds, function(err) {
+      if (err) {
+        reject(err);
+      } else {
+        doc.getRows(thread_num, (err,rows) => {
+          if (err) {
+            console.log(err);
+          } else {
+            doc.addRow(thread_num, {
+                post_num: rows.length + 1,
+                username: user,
+                date: date,
+                post: thread_post
+            }, function(err) {
+              if (err) {
+                reject(err);
+              } else {
+                resolve('New post added');
+              }
+            });
+          }
+        })
       }
     });
   });
@@ -165,6 +223,7 @@ var parseUserCreds = (login, userList) => {
 
 module.exports = {
   loadPosts,
+  addNewThread,
   addNewPost,
   addNewUser,
   login

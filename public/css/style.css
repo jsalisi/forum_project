@@ -1,75 +1,92 @@
 /* body wrapper */
+
 #bodyWrapper {
-      top: 0; left: 0;
-      position: static;
-    width: 98.2vw;
+  top: 0;
+  left: 0;
+  position: static;
+  width: 98.2vw;
 }
 
-
 /* credentials */
+
 #credentials {
-      top: 0; left:0;
-      height: 5vh;   width: 100%;
-    margin: auto;
-    position: absolute;
-    z-index: 9999;
+  top: 0;
+  left: 0;
+  height: 5vh;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  z-index: 9999;
 }
 
 #welcome {
-        top: 0%; bottom: 0%;
-        left: 2%;
-        height: 50%; width: 30%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    color: white;
-    font-size: 100%;
+  top: 0%;
+  bottom: 0%;
+  left: 2%;
+  height: 50%;
+  width: 30%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  color: white;
+  font-size: 100%;
 }
 
 #loginInput {
-        top: 0%;
-        right: 1%;
-        height: 48%; width: 20%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    font-size: 100%;
+  top: 0%;
+  right: 1%;
+  height: 48%;
+  width: 20%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  font-size: 100%;
 }
-#loginCheck {
-        bottom: 0%;
-        right: 2%;
-        height: 48%; width: 19%;
-    display: inline-block;
-    position: absolute;
-    margin: auto;
-    font-size: 105%;
-}
-.credField {
-    margin: 1%;
-    display: inline-block;
-    width: 44%; height: 60%;
-    font-size: 100%;
-}
-#remember {
-    width: 4%; height: 50%;
-}
-#loginBut {
-        right: 1%;
-    position: absolute;
-    font-size: 90%;
 
+#loginCheck {
+  bottom: 0%;
+  right: 2%;
+  height: 48%;
+  width: 19%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  font-size: 105%;
+}
+
+.credField {
+  margin: 1%;
+  display: inline-block;
+  width: 44%;
+  height: 60%;
+  font-size: 100%;
+}
+
+#remember {
+  width: 4%;
+  height: 50%;
+}
+
+#loginBut {
+  right: 1%;
+  position: absolute;
+  font-size: 90%;
 }
 
 /*TODO: adjust images to fit different screen sizes*/
+
 /* banner */
+
 #banner {
-    left: 0; top: 0;
-    height: 20vh;   width: 100%;
-    background-image: url("/img/banner1.jpg");
-    background-position: top center;
-    background-size: cover;
-    display: inline-block;
-    position: absolute;
+  left: 0;
+  top: 0;
+  height: 20vh;
+  width: 100%;
+  background-image: url("/img/banner1.jpg");
+  background-position: top center;
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
 }
 
 #logo {
@@ -88,50 +105,55 @@
 }
 
 /*body background*/
-/*TODO: make bg static on the back while page scrolls*/
-#bodybg {
-    left: 0; top: 0;
-    height: 125vh;
-    width: 99vw;
-    background-image: url('/img/bodybg4.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: absolute;
-}
 
+/*TODO: make bg static on the back while page scrolls*/
+
+#bodybg {
+  left: 0;
+  top: 0;
+  height: 125vh;
+  width: 98.9vw;
+  background-image: url('/img/bodybg4.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+  position: absolute;
+}
 
 /* search bar */
+
 #searchBar {
-        left: 0; top: 20vh;
-        height: 5vh;   width: 100%;
-    background-color: lightgrey;
-    display: inline-block;
-    position: absolute;
+  left: 0;
+  top: 20vh;
+  height: 5vh;
+  width: 100%;
+  background-color: lightgrey;
+  display: inline-block;
+  position: absolute;
 }
 
-
 #searchMenu {
-        left: 1%;
-        height: 100%; width: 12%;
-    position: absolute;
+  left: 1%;
+  height: 100%;
+  width: 12%;
+  position: absolute;
 }
 
 #recent {
-        left: 5%;
-    position: absolute;
+  left: 5%;
+  position: absolute;
 }
 
 #forum_home:link, #forum_home:visited {
-        line-height: 175%;
-    background-color: darkslategrey;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    padding-left: 10%;
-    padding-right: 10%;
-    font-size: 125%;
+  line-height: 175%;
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-size: 125%;
 }
 
 #forum_home:hover, #forum_home:active {
@@ -140,20 +162,23 @@
 }
 
 #searchBox {
-        right: 1%;
-        height: 100%; width: 30%;
-    position: absolute;
-}
-#searchType {
-        top: 0; bottom: 0;
-        right: 10%;
-        height: 65%;
-    position: absolute;
-    margin: auto
+  right: 1%;
+  height: 100%;
+  width: 30%;
+  position: absolute;
 }
 
+#searchType {
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  height: 65%;
+  position: absolute;
+  margin: auto
+}
 
 /* hot topics */
+
 /* #hotTopic {
         right: 1%; top: 35vh;
         width: 15%; height: 60vh;
@@ -169,153 +194,137 @@
     font-size: 200%;
 } */
 
-
 /* forum type selections */
+
 #discussSelect {
-        left: 17.5%; top: 27vh;
-        width: 65%; height: auto;
-    position: absolute;
-    margin: auto;
-    background-color: aliceblue;
+  left: 17.5%;
+  top: 27vh;
+  width: 65%;
+  height: auto;
+  position: absolute;
+  margin: auto;
+  background-color: aliceblue;
 }
+
 #monhun {
   padding: 1%;
-  margin:1%;
+  margin: 1%;
 }
+
 #topicTitle:link, #topicTitle:visited {
-    color: green;
-    text-decoration: none;
-    font-size: 150%;
+  color: green;
+  text-decoration: none;
+  font-size: 150%;
 }
+
 #topicTitle:hover, #topicTitle:active {
-    text-decoration: underline;
-    font-size: 150%;
+  text-decoration: underline;
+  font-size: 150%;
 }
+
 a.threadTitle:link {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
+
 a.threadTitle:visited {
   color: silver;
   text-decoration: none;
 }
+
 a.threadTitle:hover, a.threadTitle:active {
   color: white;
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
+
 .topic {
-        width: 96%; height: 93%;
-    border:1px solid black;
-    margin: 2%;
+  width: 96%;
+  height: 93%;
+  border: 1px solid black;
+  margin: 2%;
 }
+
 .topicBanner {
-        width: 99.7%; height: 2%;
-    margin: 0.2%;
-    background-color: dimgrey;
-    color: white;
-    margin: 0.1%;
-    display: inline-block;
+  width: 99.7%;
+  height: 2%;
+  margin: 0.2%;
+  background-color: dimgrey;
+  color: white;
+  margin: 0.1%;
+  display: inline-block;
 }
+
 .topicContainer {
-        width: 75%;
-        padding-left: 0.5%;
-    background-color: black;
-    display: inline-block;
+  width: 75%;
+  padding-left: 0.5%;
+  background-color: black;
+  display: inline-block;
 }
+
 .statsContainer {
-        width: 10%;
-    background-color: white;
-    display: inline-block;
-    color: black
+  width: 10%;
+  background-color: white;
+  display: inline-block;
+  color: black
 }
+
 .latestContainer {
-    width: 13.6%;
-    background-color: white;
-    display: inline-block;
-    color: black
+  width: 13.6%;
+  background-color: white;
+  display: inline-block;
+  color: black
 }
 
 /* Topics Styling */
+
 .Thread {
-        height: auto; width: 99.7%;
-    margin: 0.2%;
-    background-color: darkslategrey;
-    color: white;
-    display: inline-block;
+  height: auto;
+  width: 99.7%;
+  margin: 0.2%;
+  background-color: darkslategrey;
+  color: white;
+  display: inline-block;
 }
+
 .threadContainer {
-        width: 75%;
-        padding-left: 0.5%;
-    color:white;
-    display: inline-block;
+  width: 75%;
+  padding-left: 0.5%;
+  color: white;
+  display: inline-block;
 }
+
 .countContainer {
-        width: 10%;
-    display: inline-block;
-    color: white;
+  width: 10%;
+  display: inline-block;
+  color: white;
 }
+
 .recentContainer {
-        width: 13.6%;
-    display: inline-block;
-    color: white;
+  width: 13.6%;
+  display: inline-block;
+  color: white;
 }
+
 .threadInfo {
-    display: block;
+  display: block;
 }
+
 .statsInfo {
-    display: block;
+  display: block;
 }
+
 .Text {
-    width: 98.7%; height: 50%;
+  width: 98.7%;
+  height: 50%;
 }
+
 .recentInfo {
-    display: block;
+  display: block;
 }
 
 /* Create post button */
+
 #makethread {
   margin: 1.5%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> 22b07270992b98f821f26e5c431d37146d73b8ba
