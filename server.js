@@ -31,6 +31,7 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 app.get('/home', (request, response) => {
   database.loadPosts().then((post) => {
     response.render('index.hbs', {thread: post});
+    console.log(post);
   }).catch((error) => {
     response.send(error);
   });
@@ -67,7 +68,7 @@ app.get('/postThread', (request, response) => {
     response.render('postThread.hbs', {})
 });
 
-app.get('/showthread', (request, response) => {
+app.get(`/showthread=?${threadnumber}`, (request, response) => {
     response.render('showthread.hbs', {})
 });
 

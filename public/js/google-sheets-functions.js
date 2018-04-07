@@ -39,10 +39,14 @@ var loadPosts = () => {
             var mdata = [];
 
             for (i=0; i < rows.length; i++) {
-              var temp = {};
+              var temp = {thread_name: rows[i].threadname,
+                          sheet_num: rows[i].sheetnum,
+                          started_by: rows[i].startedby,
+                          start_date: rows[i].startdate,
+                          last_post: rows[i].lastpost,
+                          post_date: rows[i].postdate,
+                          total_posts: rows[i].totalposts};
               
-              temp['topic_title'] = rows[i].topic;
-              temp['username'] = rows[i].user;
               mdata.push(temp);
             }
             resolve(mdata);
