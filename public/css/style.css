@@ -15,7 +15,7 @@
   height: 5vh;
   width: 100%;
   margin: auto;
-  position: absolute;
+  position: fixed;
   z-index: 9999;
 }
 
@@ -86,7 +86,8 @@
   background-position: top center;
   background-size: cover;
   display: inline-block;
-  position: absolute;
+  position: fixed;
+  z-index: 10;
 }
 
 #logo {
@@ -117,7 +118,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: repeat-y;
-  position: absolute;
+  position: fixed;
 }
 
 /* search bar */
@@ -129,7 +130,8 @@
   width: 100%;
   background-color: lightgrey;
   display: inline-block;
-  position: absolute;
+  position: fixed;
+  z-index: 10;
 }
 
 #searchMenu {

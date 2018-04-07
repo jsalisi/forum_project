@@ -45,7 +45,8 @@ var loadPosts = () => {
                           start_date: rows[i].startdate,
                           last_post: rows[i].lastpost,
                           post_date: rows[i].postdate,
-                          total_posts: rows[i].totalposts};
+                          total_posts: rows[i].totalposts,
+                          topic_link: rows[i].link};
 
               mdata.push(temp);
             }
@@ -88,7 +89,8 @@ var addNewThread = (user, topic, thread_post, date) => {
               thread_name: topic,
               started_by: user,
               sheet_num: thread_num,
-              init_post_date: date
+              init_post_date: date,
+              link: topic.replace(/ /g,"_")
             }, function(err) {
               if (err) {
                 reject(err);

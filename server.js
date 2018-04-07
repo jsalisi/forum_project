@@ -42,10 +42,6 @@ app.get('/postThread', (request, response) => {
     response.render('postThread.hbs', {})
 });
 
-app.get('/showthread', (request, response) => {
-    response.render('showthread.hbs', {})
-});
-
 // posting thread to gs
 app.post('/postResult', urlencodedParser, (request, response) => {
     var datetime = new Date();
@@ -54,10 +50,10 @@ app.post('/postResult', urlencodedParser, (request, response) => {
         console.log(result);
         response.redirect('/home');
       }).catch((error) => {
-        console.log(error);
+        response.send(error);
       });
     }).catch((error) => {
-      console.log(error);
+      response.send(error);
     });
 });
 
@@ -77,8 +73,24 @@ app.post('/postReg', urlencodedParser, (request, response) => {
         response.render('register.hbs', {})
         console.log("no accounts registered")
     }
-})
+});
 
+app.param('name', (request, response, next, name) => {
+  // TODO: stuff
+  next();
+});
+
+app.get('/:name', (request, response) => {
+  response.render('discussion_thread.hbs', {
+    title: 'Title',
+    stats: '',
+    recent: 'Last Post',
+    username: 'justin',
+    number: '1',
+    userpost: 'this is a meme',
+    topic: 'How do I play this game?'
+  });
+});
 
 //****************************Server***************************************//
 app.listen(8080, () => {

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Forum Project</title>
+    <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div id='bodybg'></div>
+
+    <div id='bodyWrapper'>
+        {{> topBanner}}
+    </div>
+
+    <div id="post_div">
+      <b id="topicTitle" href='/monhun'>{{topic}}</b>
+        {{> threadPostTemp}}
+        {{> threadPostTemp}}
+        {{> threadPostTemp}}
+        {{> threadPostTemp}}
+    </div>
+
+  </body>
+</html>
