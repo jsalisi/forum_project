@@ -10,7 +10,7 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 
 // Sheet Number
 const USERS_WORKSHEET = 1;
-// const THREAD_WORKSHEET = 2; //removed and will use a parameter instead.
+const THREAD_WORKSHEET = 2; //removed and will use a parameter instead.
 
 /*
 ** Spreadsheet Notes **
