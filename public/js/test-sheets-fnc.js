@@ -18,14 +18,15 @@ var database = require('./google-sheets-functions.js')
 //   console.log(result);
 // });
 
-var test_post = "Hi, my name is Stephen!"
+var test_post = "Hi, my name is irugiuerga!"
+var datetime = new Date();
 
 /* Testing add post functionality */
-// database.addNewPost('stephen', 'saturday', test_post, 5).then((result) => {
-//   console.log(result);
-// }).catch((error) => {
-//   console.log(error);
-// });
+database.addNewPost('justing', datetime, test_post, 5).then((result) => {
+  console.log(result);
+}).catch((error) => {
+  console.log(error);
+});
 
 /* Testing login functionality */
 // database.login("admin", "P@ssw0rd").then((results) => {
@@ -37,7 +38,7 @@ var test_post = "Hi, my name is Stephen!"
 /* Testing new thread functionality */
 // database.addNewThread('justin', 'How do?', test_post, '69:69').then((results) => {
 //   database.addNewPost(results.user, '22:19 apr 6, 2018', results.thread_post, 3).then((result) => {
-    console.log(result);
+//    console.log(result);
 //   }).catch((error) => {
 //     console.log(error);
 //   });
