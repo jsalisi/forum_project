@@ -4,6 +4,8 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
 
+const port = process.env.PORT || 8080;
+
 // Importing file to access the Google Spreadsheet database
 const database = require('./public/js/google-sheets-functions.js');
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
@@ -105,6 +107,6 @@ app.get('/:name', (request, response) => {
 });
 
 //****************************Server***************************************//
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log('Server is up on the port 8080');
 });
