@@ -47,7 +47,8 @@ var loadPosts = (worksheet) => {
                           post_date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
                           last_poster: rows[i].lastposter,
                           last_post_date: `${date2[1]} ${date2[2]}, ${date2[3]} ${date2[4]}`,
-                          total_posts: rows[i].totalposts,
+                          replies: rows[i].totalposts - 1,
+                          viewed: rows[i].viewed,
                           topic_link: rows[i].link};
 
               mdata.push(temp);
@@ -102,9 +103,13 @@ var addNewThread = (user, topic, thread_post, date) => {
             thread_num = rows.length + 3;
             doc.addRow(THREAD_WORKSHEET, {
               thread_name: topic,
-              started_by: user,
               sheet_num: thread_num,
+              started_by: user,
               init_post_date: date,
+              last_poster: user,
+              last_post_date: date,
+              total_posts: 1,
+              viewed: 1,
               link: topic.replace(/ /g,"_")
             }, function(err) {
               if (err) {
@@ -142,7 +147,7 @@ var addNewPost = (user, date, thread_post, thread_num) => {
           if (err) {
             console.log(err);
           } else {
-            doc.addRow(thread_num, {
+            doc.addRow(thread_num, { //TODO: update threads sheet namely: last_poster, last_post_date, viewed, and total_posts
                 post_num: rows.length + 1,
                 username: user,
                 date: date,
