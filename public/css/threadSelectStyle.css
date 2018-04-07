@@ -274,7 +274,7 @@
 /* Thread post template styling*/
 
 #topicTitle {
-  color: green;
+  color: lightblue;
   text-decoration: none;
   font-size: 150%;
 }
@@ -287,10 +287,9 @@
   position: absolute;
   margin: auto;
   padding: 1%;
-  background-color: aliceblue;
 }
 
-#post_info {
+.post_info {
   position: absolute;
   border-right-style: solid;
   width: 15%;
@@ -299,13 +298,13 @@
   left: 0px;
 }
 
-#post_text {
+.post_text {
   position: absolute;
   top: 10%;
   left: 20%;
   width: 75%;
-  height: 80%;
-  color: black;
+  height: auto;
+  color: aliceblue;
 }
 
 .userpost {
@@ -315,6 +314,6 @@
   margin-top: 2%;
   margin-bottom: 2%;
   border-style: solid;
-  border-color: black;
-  color: black;
+  border-color: aliceblue;
+  color: aliceblue;
 }

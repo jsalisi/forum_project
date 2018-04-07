@@ -10,13 +10,15 @@
 
     <div id='bodyWrapper'>
         {{> topBanner}}
-    </div>
 
-    <div id="post_div">
-      <b id="topicTitle" href='/monhun'>{{topic}}</b>
-        {{#each posts}}
-          {{> threadPostTemp}}
-        {{/each}}
+        <div id="post_div">
+          <div id='monhun' class='topic'>
+            <b id="topicTitle" href='/monhun'>{{topic}}</b>
+              {{#each posts}}
+                {{> threadPostTemp}}
+              {{/each}}
+            </div>
+        </div>
     </div>
 
   </body>
