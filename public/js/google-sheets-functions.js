@@ -39,19 +39,19 @@ var loadPosts = () => {
             var mdata = [];
 
             for (i=0; i < rows.length; i++) {
+              var date1 = rows[i].initpostdate.split(' ');
+              var date2 = rows[i].lastpostdate.split(' ')
               var temp = {thread_name: rows[i].threadname,
                           sheet_num: rows[i].sheetnum,
                           started_by: rows[i].startedby,
-                          post_date: rows[i].initpostdate,
+                          post_date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
                           last_poster: rows[i].lastposter,
-                          last_post_date: rows[i].lastpostdate,
+                          last_post_date: `${date2[1]} ${date2[2]}, ${date2[3]} ${date2[4]}`,
                           total_posts: rows[i].totalposts,
                           topic_link: rows[i].link};
 
               mdata.push(temp);
             }
-            console.log(rows);
-            console.log(mdata);
             resolve(mdata);
           }
         });
