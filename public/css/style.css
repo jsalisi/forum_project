@@ -332,6 +332,10 @@ a.threadTitle:hover, a.threadTitle:active {
 
 /* Create post button */
 
+#makeThreadButton {
+  display: none;
+}
+
 #makethread:link, #makethread:visited {
   line-height: 175%;
   background-color: darkslategrey;

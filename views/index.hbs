@@ -1,49 +1,46 @@
 <!Doctype html>
 <html>
-    <head>
-        <title>Forum Project</title>
-        <link href='css/style.css' rel='stylesheet' type='text/css' />
-    </head>
 
-    <body>
-        <div id='bodybg'></div>
+<head>
+  <title>Forum Project</title>
+  <link href='css/style.css' rel='stylesheet' type='text/css' />
+</head>
 
-        <div id='bodyWrapper'>
+<body>
+  <div id='bodybg'></div>
 
-            {{> (getBanner)}}
+  <div id='bodyWrapper'>
 
-
-            <div id='discussSelect'>
-                <div id='monhun' class='topic'>
-                    <b><a id="topicTitle" href='/postThread'>Monster Hunter</a></b>
-                    {{> topicListTemp}}
-                    {{#each thread}}
-                        {{> threadLinkTemp}}
-                    {{/each}}
-                </div>
-                <input id="makeThreadButton" style="display: none;" type=button value = "Create a New thread" onclick="window.location.href='/postThread'"/>
-
-            </div>
+    {{> (getBanner)}}
 
 
-            {{> popTopic}}
-            
-            <p hidden id="dupeCheck">{{setBrowserFlag}}</p>
-            <p hidden id="loginCheck">{{setLoginCheck}}</p>
-            
-        </div>
-        <script type='text/javascript'>
-            var browser_dupe = document.getElementById("dupeCheck").innerHTML;
-            var loginCheck = document.getElementById("loginCheck").innerHTML;
-        
-            if (browser_dupe == 1) {
-                alert("New Account Created!")
-            }
-            
-            if (loginCheck == 1) {
-                document.getElementById("makeThreadButton").style="display: block;";
-            }
-            
-        </script>
-    </body>
+    <div id='discussSelect'>
+      <div id='monhun' class='topic'>
+        <b><a id="topicTitle" href='/postThread'>Monster Hunter</a></b> {{> topicListTemp}}
+        {{#each thread}}
+          {{> threadLinkTemp}}
+        {{/each}}
+      </div>
+      <b id="makeThreadButton"><a id="makethread" href='/postThread'>Create New Thread</a></b>
+
+    </div>
+
+    <p style="display: none;" id="dupeCheck">{{setBrowserFlag}}</p>
+    <p style="display: none;" id="loginCheck">{{setLoginCheck}}</p>
+
+  </div>
+  <script type='text/javascript'>
+    var browser_dupe = document.getElementById("dupeCheck").innerHTML;
+    var loginCheck = document.getElementById("loginCheck").innerHTML;
+
+    if (browser_dupe == 1) {
+      alert("New Account Created!")
+    }
+
+    if (loginCheck == 1) {
+      document.getElementById("makeThreadButton").style.display = 'block'
+    }
+  </script>
+</body>
+
 </html>
