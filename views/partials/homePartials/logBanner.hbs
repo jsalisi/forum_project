@@ -1,0 +1,25 @@
+<div id='credentials'>
+    <div id='welcome'>
+        <strong><i>Welcome Back {{getUser}}!</i></strong>
+    </div>
+    
+    <form id='logoutInput' action="/logOut" method="post">
+        <button type="submit">Log Out</button>
+    </form>
+</div>
+
+<div id='banner'>
+  <div id="logo" onclick="window.location='/home';"></div>
+</div>
+
+<div id='searchBar'>
+    <div id='searchMenu'>
+          <b><a id="forum_home" href='/home'>Home</a></b>
+    </div>
+
+    <!-- TODO: get add magnifying glass icon to search -->
+    <div id='searchBox'>
+        <input id='searchType' type='text' placeholder='Search' />
+        <! later on we want a little magnifying glass icon so users can click on to search>
+    </div>
+</div>

@@ -26,18 +26,74 @@ hbs.registerPartials(__dirname + '/views/partials/homePartials');
 hbs.registerPartials(__dirname + '/views/partials/monhunPartials');
 hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 
+// helpers
+var current_user = '';
+var login_flag = 0
+var browser_flag = 0
+var dupe_comment = ''
+
+hbs.registerHelper('getBanner', () => {
+    if (login_flag === 0) {
+        return 'topBanner'
+    } else {
+        return 'logBanner'
+    }
+}); 
+
+hbs.registerHelper('getUser', () => {
+    return current_user;
+}); 
+
+hbs.registerHelper('getDupe', () => {
+    return dupe_comment;
+}); 
+
+hbs.registerHelper('setBrowserFlag', () => {
+    return browser_flag;
+}); 
+
 
 //*********************************Rendering*******************************//
+
 
 // rendering home page.
 // refer to google-sheets-functions.js for .loadPosts()
 app.get('/home', (request, response) => {
   database.loadPosts(2).then((post) => {
     console.log('Loading posts...');
-    response.render('index.hbs', {thread: post});
+    response.render('index.hbs', {
+        thread: post
+    });
   }).catch((error) => {
     response.send(error);
   });
+});
+
+// login cred check
+app.get('/relog', (request, response) => {
+  response.render('relogin.hbs')
+});
+
+app.post('/checkCred', urlencodedParser, (request, response) => {
+    database.login(request.body.user, request.body.pass).then((results) => {
+      if (results === 'yes') {
+          current_user = request.body.user
+          login_flag = 1
+          response.redirect('/home')
+      } else {
+          response.redirect('/relog')
+      }
+        
+    }).catch((error) => {
+      console.log(error);
+    });
+});
+
+// logout
+app.post('/logOut', urlencodedParser, (request, response) => {
+    current_user = ''
+    login_flag = 0
+    response.redirect('/home')
 });
 
 // rendering post topic list page
@@ -67,15 +123,37 @@ app.get('/register', (request, response) => {
 });
 
 app.post('/postReg', urlencodedParser, (request, response) => {
-    if (request.body.new_pass === request.body.confirm_pass){
-        database.addNewUser(request.body.new_user, request.body.new_pass, 'standard').then((result) => {
-          console.log(result);
-        });
-        response.redirect('/home');
-    } else {
-        response.render('register.hbs', {})
-        console.log("no accounts registered")
-    }
+    var dupeflag = 0
+    database.existcheck(request.body.new_user).then((results) => {
+      dupeflag = results;
+      console.log(dupeflag)
+    }).catch((error) => {
+      console.log(error);
+    });
+    
+    setTimeout (() => {
+        if (dupeflag === 'yes') {
+            dupe_comment = "Cannot Register Account! Username already taken!!"
+            response.render('register.hbs', {})
+            console.log("no accounts registered")
+        } else if (request.body.new_pass != request.body.confirm_pass) {
+            dupe_comment = "Confirmation of password does not match!!"
+            response.render('register.hbs', {})
+            console.log("no accounts registered")
+        } else if ((request.body.new_pass === request.body.confirm_pass) && (dupeflag === 'no')){
+            database.addNewUser(request.body.new_user, request.body.new_pass, 'standard').then((result) => {
+              console.log(result);
+            });
+            browser_flag = 1
+            response.redirect('/home');
+            setTimeout (() => {
+                browser_flag = 0
+            }, 1000);
+        } else {
+            response.render('register.hbs', {})
+            console.log("no accounts registered")
+        }
+    }, 1000);
 });
 
 app.param('name', (request, response, next, name) => {

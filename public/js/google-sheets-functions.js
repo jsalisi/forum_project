@@ -220,6 +220,27 @@ var login = (user, pass) => {
   });
 };
 
+// check for existence
+
+var existcheck = (user) => {
+  return new Promise((resolve, reject) => {
+    var existcheck = {username: user};
+    doc.useServiceAccountAuth(creds, function(err) {
+      if (err) {
+        reject(err);
+      } else {
+        doc.getRows(USERS_WORKSHEET, function(err, rows) {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(checkFlag(existcheck, rows));
+          }
+        });
+      }
+    });
+  });
+};
+
 
 /*
 * Checks if the user credentials matches with the database.
@@ -230,12 +251,28 @@ var login = (user, pass) => {
 var parseUserCreds = (login, userList) => {
 
   var return_statements = {
-    success: "Authentication Successful",
-    failed: "Authentication Failed"
+    success: "yes",
+    failed: "no"
   }
 
   for (var i=0; i<userList.length; i++) {
     if ((login.username === userList[i].username) && (login.password === userList[i].password)) {
+      return return_statements.success;
+      break;
+    }
+  }
+  return return_statements.failed;
+}
+
+var checkFlag = (login, userList) => {
+
+  var return_statements = {
+    success: "yes",
+    failed: "no"
+  }
+
+  for (var i=0; i<userList.length; i++) {
+    if (login.username === userList[i].username){
       return return_statements.success;
       break;
     }
@@ -248,5 +285,6 @@ module.exports = {
   addNewThread,
   addNewPost,
   addNewUser,
-  login
+  login,
+  existcheck
 };

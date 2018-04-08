@@ -28,16 +28,22 @@ var test_post = "Hi, my name is Stephen!"
 // });
 
 /* Testing login functionality */
-// database.login("admin", "P@ssw0rd").then((results) => {
-//   console.log(results);
-// }).catch((error) => {
-//   console.log(error);
-// });
+/*database.login("asdfasdf", "P@ssw0rd").then((results) => {
+  console.log(results);
+}).catch((error) => {
+  console.log(error);
+});*/
+
+database.existcheck("coolguy").then((results) => {
+  console.log(results);
+}).catch((error) => {
+  console.log(error);
+});
 
 /* Testing new thread functionality */
 // database.addNewThread('justin', 'How do?', test_post, '69:69').then((results) => {
 //   database.addNewPost(results.user, '22:19 apr 6, 2018', results.thread_post, 3).then((result) => {
-    console.log(result);
+//    console.log(result);
 //   }).catch((error) => {
 //     console.log(error);
 //   });

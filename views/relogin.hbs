@@ -15,38 +15,34 @@
                <div id='monhun' class='topic'>
 
                    <div class='topicTitle'>
-                       <b>New User Registration</b>
+                       <b>Login</b>
                    </div>
 
-                   <form class="regContainer" action='/postReg' method='POST'>
-                       
-                       <p>{{getDupe}}</p>
+                   <form class="regContainer" action='/checkCred' method='POST'>
                        
                        <br>
+                       <p style="color: red;">Authentication not successful! Please re-enter Login information!</p>
+                       <br>
+
                        <label>Username:</label>
-                       <input id='new_user' name='new_user' type="text">
+                       <input id='new_user' name='user' type="text">
                        <br>
 
                        <br>
                        <label>Password:</label>
-                       <input id='new_pass' name='new_pass' type="password" onchange="get_var()">
+                       <input id='new_pass' name='pass' type="password" onchange="get_var()">
                        <br>
-
-                       <br>
-                       <label>Confirm Password:</label>
-                       <input id='confirm_pass' name='confirm_pass' type="password" onchange="get_var()">
-                       <br>
-
+                       
                        <br>
                        <input id="gogo" type="submit">
-                       
-                       <p hidden id="dupeCheck">{{setBrowserDupe}}</p>
                    </form>
 
                 </div>
             </div>
 
         </div>
+
+        <script src='js/app.js'></script>
 
     </body>
 </html>

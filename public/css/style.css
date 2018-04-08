@@ -33,14 +33,19 @@
 }
 
 #loginInput {
-  top: 0%;
-  right: 1%;
-  height: 48%;
-  width: 20%;
+    top: 0%; right: 1%;
+    height: 48%; width: 20%;
   display: inline-block;
   position: absolute;
   margin: auto;
   font-size: 100%;
+}
+#logoutInput {
+    top: 30%; right: 2%;
+    position: absolute;
+    display: inline-block;
+    margin: auto;
+    font-size: 100%;
 }
 
 #loginCheck {

@@ -10,7 +10,7 @@
 
         <div id='bodyWrapper'>
 
-            {{> topBanner}}
+            {{> (getBanner)}}
 
 
             <div id='discussSelect'>
@@ -21,13 +21,21 @@
                         {{> threadLinkTemp}}
                     {{/each}}
                 </div>
-                <button id="makethread">Create New Thread</button>
+                <input type=button value = "Create a New thread" onclick="window.location.href='/postThread'"/>
             </div>
 
 
             {{> popTopic}}
-
+            
+            <p hidden id="dupeCheck">{{setBrowserFlag}}</p>
+            
         </div>
-        <script src='js/app.js'></script>
+        <script type='text/javascript'>
+            var browser_dupe = document.getElementById("dupeCheck").innerHTML;
+            if (browser_dupe == 1) {
+                alert("New Account Created!")
+            }
+            
+        </script>
     </body>
 </html>

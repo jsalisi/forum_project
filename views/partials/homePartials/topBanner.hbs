@@ -1,20 +1,20 @@
-<div id='credentials'>
+<form id='credentials' action="/checkCred" method="POST">
     <div id='welcome'>
         <span>
             Hello and welcome to our forum.
             <strong><i>Is this your first visit?</i></strong>
         </span>
-        <button id='register'>Register</button>
+        <input type=button value = "Register" onclick="window.location.href='/register'"/>
     </div>
     <div id='loginInput'>
-        <input id='username' type='text' class='credField' placeholder='Username' />
-        <input id='password' type='password' class='credField' placeholder='Password' />
+        <input id='username' type='text' class='credField' placeholder='Username' name="user"/>
+        <input id='password' type='password' class='credField' placeholder='Password' name="pass" />
     </div>
     <div id='loginCheck'>
         <input id='remember' type='checkbox' value=True>Remember Me
-        <button id='loginBut'>Log In</button>
+        <button id='loginBut' type="submit">Log In</button>
     </div>
-</div>
+</form>
 
 <div id='banner'>
   <div id="logo" onclick="window.location='/home';"></div>
