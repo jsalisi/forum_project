@@ -3,8 +3,11 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
-
+const session = require('express-session');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 8080;
+
 
 // Importing file to access the Google Spreadsheet database
 const database = require('./public/js/google-sheets-functions.js');
@@ -14,7 +17,14 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false});
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
-
+app.use(passport.initialize());
+app.use(cookieParser());
+app.use(session({
+    secret: "secret", 
+    resave: false, 
+    saveUninitialzed: true
+}));
+app.use(passport.session());
 
 // Set views folder to be available for use
 // Set the view engine to use .hbs files for the template format
@@ -59,6 +69,10 @@ hbs.registerHelper('setBrowserFlag', () => {
 
 //*********************************Rendering*******************************//
 
+passport.deserializeUser(function(id, done) {
+    done(err, user);
+});
+
 
 // rendering home page.
 // refer to google-sheets-functions.js for .loadPosts()
@@ -83,6 +97,8 @@ app.post('/checkCred', urlencodedParser, (request, response) => {
       if (results === 'yes') {
           current_user = request.body.user
           login_flag = 1
+          //if (request.body.remember === 'True'){
+          //}
           response.redirect('/home')
       } else {
           response.redirect('/relog')

@@ -29,21 +29,13 @@
 
     </div>
 
-    <p style="display: none;" id="dupeCheck">{{setBrowserFlag}}</p>
-    <p style="display: none;" id="loginCheck">{{setLoginCheck}}</p>
-
   </div>
-  <script type='text/javascript'>
-    var browser_dupe = document.getElementById("dupeCheck").innerHTML;
-    var loginCheck = document.getElementById("loginCheck").innerHTML;
-
-    if (browser_dupe == 1) {
-      alert("New Account Created!")
-    }
-
-    if (loginCheck == 1) {
-      document.getElementById("makePostButton").style.display = 'block'
-    }
+  <p style="display: none;" id="loginCheck">{{setLoginCheck}}</p>
+  <script>
+      var loginCheck = document.getElementById("loginCheck").innerHTML;
+      if (loginCheck == 1) {
+              document.getElementById("makePostButton").style="display: block;";
+      }
   </script>
 </body>
 
