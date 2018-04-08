@@ -114,7 +114,7 @@ app.get('/:name', (request, response) => {
     return database.loadPosts(sheet_number) //gets the sheet and return
   }).then((post_sheet) => {
     response.render('discussion_thread.hbs', {
-      topic: response.req.params.name,
+      topic: response.req.params.name.replace(/_/g," "),
       posts: post_sheet})
   }).catch((error) => {
     response.send(error);
