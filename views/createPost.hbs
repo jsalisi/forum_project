@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Forum Project</title>
+        <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
+    </head>
+
+    <body>
+        <div id='bodybg'></div>
+
+        <div id='bodyWrapper'>
+            {{> topBanner}}
+
+            <div id='discussSelect'>
+               <div id='monhun' class='topic'>
+
+                   <div class='topicTitle'>
+                       <b>Create New Post</b>
+                   </div>
+
+                   <form class="textContainer" action='/newPostResult' method='POST'>
+                       <br>
+                       <label>Content:</label>
+                       <textarea class="Text" id='topPost' name='topContent'></textarea>
+
+                       <br>
+                       <input id="thread_submit" type="submit">
+                   </form>
+                </div>
+            </div>
+
+        </div>
+
+        <script src='js/app.js'></script>
+
+    </body>
+</html>
