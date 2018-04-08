@@ -212,7 +212,6 @@ app.get('/:name', (request, response) => {
   database.loadPosts(2).then((threadlist) => { //get the sheetnumber using param
     for (var x in threadlist) {
       if (threadlist[x].topic_link == response.req.params.name) {
-        current_sheet = threadlist[x].sheet_num;
         return threadlist[x].sheet_num; //returns sheet number
       }
     }
@@ -222,7 +221,9 @@ app.get('/:name', (request, response) => {
     response.render('discussion_thread.hbs', {
       topic: response.req.params.name.replace(/_/g," "),
       posts: post_sheet});
+    current_sheet = post_sheet[0].sheet_num;
     redir_page = response.req.url;
+    database.updatePostView(current_sheet);
   }).catch((error) => {
     response.send(error);
   });

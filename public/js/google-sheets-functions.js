@@ -47,7 +47,7 @@ var loadPosts = (worksheet) => {
                           post_date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
                           last_poster: rows[i].lastposter,
                           last_post_date: `${date2[1]} ${date2[2]}, ${date2[3]} ${date2[4]}`,
-                          replies: rows[i].totalposts,
+                          replies: rows[i].totalposts - 1,
                           viewed: rows[i].viewed,
                           topic_link: rows[i].link};
 
@@ -62,7 +62,8 @@ var loadPosts = (worksheet) => {
               var temp = {post_num: rows[i].postnum,
                           username: rows[i].username,
                           date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
-                          post: rows[i].post};
+                          post: rows[i].post,
+                          sheet_num: parseInt(worksheet)};
 
               mdata.push(temp);
             }
@@ -316,11 +317,33 @@ var updateThreadList = (data) => {
   });
 }
 
+var updatePostView = (sheet) => {
+  doc.useServiceAccountAuth(creds, function(err) {
+    if(err) {
+      reject(err);
+    } else {
+      doc.getRows(2, function(err, rows) {
+        if (err) {
+          reject(err);
+        } else {
+          for (var x in rows) {
+            if (sheet == rows[x].sheetnum) {
+              rows[x].viewed = parseInt(rows[x].viewed) + 1;
+              rows[x].save();
+            }
+          }
+        }
+      })
+    }
+  })
+}
+
 module.exports = {
   loadPosts,
   addNewThread,
   addNewPost,
   addNewUser,
   login,
-  existcheck
+  existcheck,
+  updatePostView
 };
