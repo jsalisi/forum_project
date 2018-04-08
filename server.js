@@ -38,9 +38,10 @@ hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 
 // helpers
 var current_user = '';
-var login_flag = 0
-var browser_flag = 0
-var dupe_comment = ''
+var login_flag = 0;
+var browser_flag = 0;
+var dupe_comment = '';
+var current_sheet = '';
 
 hbs.registerHelper('getBanner', () => {
     if (login_flag === 0) {
@@ -145,7 +146,7 @@ app.post('/newPostResult', urlencodedParser, (request, response) => {
   var datetime = new Date();
   // TODO: Need to post to the thread that's click on
   // TODO: Need to have real user's username passed through
-  database.addNewPost(current_user, datetime, request.body.topContent, 5).then((result) => {
+  database.addNewPost(current_user, datetime, request.body.topContent, current_sheet).then((result) => {
     console.log(result);
     response.redirect('/home');
   }).catch((error) => {
@@ -205,6 +206,7 @@ app.get('/:name', (request, response) => {
   database.loadPosts(2).then((threadlist) => { //get the sheetnumber using param
     for (var x in threadlist) {
       if (threadlist[x].topic_link == response.req.params.name) {
+        current_sheet = threadlist[x].sheet_num;
         return threadlist[x].sheet_num; //returns sheet number
       }
     }
@@ -213,7 +215,7 @@ app.get('/:name', (request, response) => {
   }).then((post_sheet) => {
     response.render('discussion_thread.hbs', {
       topic: response.req.params.name.replace(/_/g," "),
-      posts: post_sheet})
+      posts: post_sheet});
   }).catch((error) => {
     response.send(error);
   });
