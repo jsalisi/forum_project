@@ -21,7 +21,7 @@
                         {{> threadLinkTemp}}
                     {{/each}}
                 </div>
-                <input type=button value = "Create a New thread" onclick="window.location.href='/postThread'"/>
+                <input id="makeThreadButton" style="display: none;" type=button value = "Create a New thread" onclick="window.location.href='/postThread'"/>
 
             </div>
 
@@ -29,12 +29,19 @@
             {{> popTopic}}
             
             <p hidden id="dupeCheck">{{setBrowserFlag}}</p>
+            <p hidden id="loginCheck">{{setLoginCheck}}</p>
             
         </div>
         <script type='text/javascript'>
             var browser_dupe = document.getElementById("dupeCheck").innerHTML;
+            var loginCheck = document.getElementById("loginCheck").innerHTML;
+        
             if (browser_dupe == 1) {
                 alert("New Account Created!")
+            }
+            
+            if (loginCheck == 1) {
+                document.getElementById("makeThreadButton").style="display: block;";
             }
             
         </script>

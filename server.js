@@ -40,6 +40,10 @@ hbs.registerHelper('getBanner', () => {
     }
 }); 
 
+hbs.registerHelper('setLoginCheck', () => {
+    return login_flag;
+}); 
+
 hbs.registerHelper('getUser', () => {
     return current_user;
 }); 
@@ -104,7 +108,7 @@ app.get('/postThread', (request, response) => {
 // posting thread to gs
 app.post('/postResult', urlencodedParser, (request, response) => {
     var datetime = new Date();
-    database.addNewThread('justin', request.body.topTitle, request.body.topContent, datetime).then((results) => {
+    database.addNewThread(current_user, request.body.topTitle, request.body.topContent, datetime).then((results) => {
       database.addNewPost(results.user, datetime, results.thread_post, results.thread_num).then((result) => {
         console.log(result);
         response.redirect('/home');
