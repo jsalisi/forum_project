@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Forum Project</title>
-    <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
-  </head>
-  <body>
-    <div id='bodybg'></div>
 
-    <div id='bodyWrapper'>
-        {{> (getBanner)}}
+<head>
+  <meta charset="utf-8">
+  <title>Forum Project</title>
+  <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
+</head>
 
-        <div id="post_div">
-          <div id='monhun' class='topic'>
-            <b id="topicTitle" href='/monhun'>{{topic}}</b>
-              {{#each posts}}
-                {{> threadPostTemp}}
-              {{/each}}
-            </div>
-            <b><a id="makepost" style="display: none;" href='/newPost'>Create New Post</a></b>
-        </div>
+<body>
+  <div id='bodybg'></div>
+
+  <div id='bodyWrapper'>
+    {{> (getBanner)}}
+
+    <div id="post_div">
+
+      <div id='monhun' class='topic'>
+
+        <b id="topicTitle" href='/monhun'>{{topic}}</b>
+
+        {{#each posts}}
+          {{> threadPostTemp}}
+        {{/each}}
+
+      </div>
+
+      <b id="makePostButton"><a id="makepost" href='/newPost'>Create New Post</a></b>
+
     </div>
-      
-    <p hidden id="loginCheck">{{setLoginCheck}}</p>
-    <script>
-        var loginCheck = document.getElementById("loginCheck").innerHTML;
-        if (loginCheck == 1) {
-                document.getElementById("makepost").style="display: block;";
-        }
-    </script>
-  </body>
+
+  </div>
+  <p style="display: none;" id="loginCheck">{{setLoginCheck}}</p>
+  <script>
+      var loginCheck = document.getElementById("loginCheck").innerHTML;
+      if (loginCheck == 1) {
+              document.getElementById("makePostButton").style="display: block;";
+      }
+  </script>
+</body>
+
 </html>

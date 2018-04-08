@@ -325,6 +325,10 @@
   word-break: break-all;
 }
 
+#makePostButton {
+  display: none;
+}
+
 #makepost:link, #makepost:visited {
   line-height: 175%;
   background-color: darkslategrey;
