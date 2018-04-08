@@ -316,6 +316,7 @@
   border-style: solid;
   border-color: aliceblue;
   color: aliceblue;
+  word-break: break-all;
 }
 
 #makepost:link, #makepost:visited {
