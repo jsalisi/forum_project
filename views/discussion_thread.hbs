@@ -18,9 +18,16 @@
                 {{> threadPostTemp}}
               {{/each}}
             </div>
-            <b><a id="makepost" href='/newPost'>Create New Post</a></b>
+            <b><a id="makepost" style="display: none;" href='/newPost'>Create New Post</a></b>
         </div>
     </div>
-    <script src='js/app.js'></script>
+      
+    <p hidden id="loginCheck">{{setLoginCheck}}</p>
+    <script>
+        var loginCheck = document.getElementById("loginCheck").innerHTML;
+        if (loginCheck == 1) {
+                document.getElementById("makepost").style="display: block;";
+        }
+    </script>
   </body>
 </html>
