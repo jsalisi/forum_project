@@ -145,7 +145,7 @@ app.post('/newPostResult', urlencodedParser, (request, response) => {
   var datetime = new Date();
   // TODO: Need to post to the thread that's click on
   // TODO: Need to have real user's username passed through
-  database.addNewPost('justing', datetime, request.body.topContent, 5).then((result) => {
+  database.addNewPost(current_user, datetime, request.body.topContent, 5).then((result) => {
     console.log(result);
     response.redirect('/home');
   }).catch((error) => {
