@@ -42,6 +42,7 @@ var login_flag = 0;
 var browser_flag = 0;
 var dupe_comment = '';
 var current_sheet = '';
+var redir_page = '';
 
 hbs.registerHelper('getBanner', () => {
     if (login_flag === 0) {
@@ -148,7 +149,7 @@ app.post('/newPostResult', urlencodedParser, (request, response) => {
   // TODO: Need to have real user's username passed through
   database.addNewPost(current_user, datetime, request.body.topContent, current_sheet).then((result) => {
     console.log(result);
-    response.redirect('/home');
+    response.redirect(redir_page);
   }).catch((error) => {
     response.send(error);
   });
@@ -216,6 +217,7 @@ app.get('/:name', (request, response) => {
     response.render('discussion_thread.hbs', {
       topic: response.req.params.name.replace(/_/g," "),
       posts: post_sheet});
+    redir_page = response.req.url;
   }).catch((error) => {
     response.send(error);
   });
