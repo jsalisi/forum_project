@@ -111,7 +111,7 @@ var addNewThread = (user, topic, thread_post, date) => {
               last_post_date: date,
               total_posts: 1,
               viewed: 1,
-              link: topic.replace(/ /g,"_")
+              link: topic.replace(/ /g,"_").substring(0,14)
             }, function(err) {
               if (err) {
                 reject(err);
