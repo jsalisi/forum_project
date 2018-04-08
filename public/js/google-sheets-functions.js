@@ -156,6 +156,13 @@ var addNewPost = (user, date, thread_post, thread_num) => {
               if (err) {
                 reject(err);
               } else {
+                updateThreadList({
+                  thread_num: thread_num,
+                  last_user: user,
+                  last_date: date,
+                  num_posts: rows.length,
+                  view_nums: 5
+                });
                 resolve('New post added');
               }
             });
@@ -278,6 +285,35 @@ var checkFlag = (login, userList) => {
     }
   }
   return return_statements.failed;
+}
+
+var updateThreadList = (data) => {
+  doc.useServiceAccountAuth(creds, function(err) {
+    if (err) {
+      reject(err);
+    } else {
+      doc.getInfo(function(err, info) {
+        var sheet = info.worksheets[1];
+
+        sheet.getCells({
+          'min-row': data.thread_num-1,
+          'max-row': data.thread_num-1
+        }, function(err, cells) {
+          cells[4].value = data.last_user;
+          cells[5].value = data.last_date;
+          cells[6].value = data.num_posts;
+          cells[7].value = data.view_nums;
+          sheet.bulkUpdateCells(cells);
+        });
+      }, function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Info retrieved');
+        }
+      });
+    }
+  });
 }
 
 module.exports = {

@@ -15,13 +15,14 @@
 
             <div id='discussSelect'>
                 <div id='monhun' class='topic'>
-                    <b><a id="topicTitle" href='/monhun'>Monster Hunter</a></b>
+                    <b><a id="topicTitle" href='/postThread'>Monster Hunter</a></b>
                     {{> topicListTemp}}
                     {{#each thread}}
                         {{> threadLinkTemp}}
                     {{/each}}
                 </div>
                 <input type=button value = "Create a New thread" onclick="window.location.href='/postThread'"/>
+
             </div>
 
 

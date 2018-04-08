@@ -322,4 +322,27 @@
   border-style: solid;
   border-color: aliceblue;
   color: aliceblue;
+  word-break: break-all;
+}
+
+#makepost:link, #makepost:visited {
+  line-height: 175%;
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1%;
+  font-size: 125%;
+  position: fixed;
+  right: 3.5%;
+  bottom: 0%;
+}
+
+#makepost:hover, #makepost:active {
+  background-color: slategrey;
+  font-size: 125%;
+  position: fixed;
+  right: 3.5%;
+  bottom: 0%;
 }

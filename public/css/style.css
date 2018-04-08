@@ -332,6 +332,24 @@ a.threadTitle:hover, a.threadTitle:active {
 
 /* Create post button */
 
-#makethread {
-  margin: 1.5%;
+#makethread:link, #makethread:visited {
+  line-height: 175%;
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1%;
+  font-size: 125%;
+  position: fixed;
+  right: 3.5%;
+  bottom: 0%;
+}
+
+#makethread:hover, #makethread:active {
+  background-color: slategrey;
+  font-size: 125%;
+  position: fixed;
+  right: 3.5%;
+  bottom: 0%;
 }

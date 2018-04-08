@@ -117,6 +117,21 @@ app.post('/postResult', urlencodedParser, (request, response) => {
 });
 
 // TODO: Post to thread
+app.get('/newPost', (request, response) => {
+    response.render('createPost.hbs', {})
+});
+
+app.post('/newPostResult', urlencodedParser, (request, response) => {
+  var datetime = new Date();
+  // TODO: Need to post to the thread that's click on
+  // TODO: Need to have real user's username passed through
+  database.addNewPost('justing', datetime, request.body.topContent, 5).then((result) => {
+    console.log(result);
+    response.redirect('/home');
+  }).catch((error) => {
+    response.send(error);
+  });
+})
 
 app.get('/register', (request, response) => {
     response.render('register.hbs', {})
@@ -177,7 +192,7 @@ app.get('/:name', (request, response) => {
     return database.loadPosts(sheet_number) //gets the sheet and return
   }).then((post_sheet) => {
     response.render('discussion_thread.hbs', {
-      topic: response.req.params.name,
+      topic: response.req.params.name.replace(/_/g," "),
       posts: post_sheet})
   }).catch((error) => {
     response.send(error);
