@@ -20,8 +20,8 @@ app.use(express.static(__dirname + '/public'));
 /*app.use(passport.initialize());
 app.use(cookieParser());
 app.use(session({
-    secret: "secret", 
-    resave: false, 
+    secret: "secret",
+    resave: false,
     saveUninitialzed: true
 }));
 app.use(passport.session());*/
@@ -48,23 +48,23 @@ hbs.registerHelper('getBanner', () => {
     } else {
         return 'logBanner'
     }
-}); 
+});
 
 hbs.registerHelper('setLoginCheck', () => {
     return login_flag;
-}); 
+});
 
 hbs.registerHelper('getUser', () => {
     return current_user;
-}); 
+});
 
 hbs.registerHelper('getDupe', () => {
     return dupe_comment;
-}); 
+});
 
 hbs.registerHelper('setBrowserFlag', () => {
     return browser_flag;
-}); 
+});
 
 
 //*********************************Rendering*******************************//
@@ -103,7 +103,7 @@ app.post('/checkCred', urlencodedParser, (request, response) => {
       } else {
           response.redirect('/relog')
       }
-        
+
     }).catch((error) => {
       console.log(error);
     });
@@ -165,7 +165,7 @@ app.post('/postReg', urlencodedParser, (request, response) => {
     }).catch((error) => {
       console.log(error);
     });
-    
+
     setTimeout (() => {
         if (dupeflag === 'yes') {
             dupe_comment = "Cannot Register Account! Username already taken!!"
