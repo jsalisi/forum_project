@@ -17,14 +17,14 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false});
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
-app.use(passport.initialize());
+/*app.use(passport.initialize());
 app.use(cookieParser());
 app.use(session({
     secret: "secret", 
     resave: false, 
     saveUninitialzed: true
 }));
-app.use(passport.session());
+app.use(passport.session());*/
 
 // Set views folder to be available for use
 // Set the view engine to use .hbs files for the template format
