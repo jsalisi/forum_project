@@ -47,7 +47,7 @@ var loadPosts = (worksheet) => {
                           post_date: `${date1[1]} ${date1[2]}, ${date1[3]} ${date1[4]}`,
                           last_poster: rows[i].lastposter,
                           last_post_date: `${date2[1]} ${date2[2]}, ${date2[3]} ${date2[4]}`,
-                          replies: rows[i].totalposts - 1,
+                          replies: rows[i].totalposts,
                           viewed: rows[i].viewed,
                           topic_link: rows[i].link};
 
@@ -160,7 +160,7 @@ var addNewPost = (user, date, thread_post, thread_num) => {
                   thread_num: thread_num,
                   last_user: user,
                   last_date: date,
-                  num_posts: rows.length,
+                  num_posts: rows.length+1,
                   view_nums: 5
                 });
                 resolve('New post added');
