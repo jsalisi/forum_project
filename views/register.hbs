@@ -1,7 +1,8 @@
 <!Doctype html>
 <html>
     <head>
-        <title>Forum Project</title>
+        <title>Register</title>
+        <link rel="icon" href="/img/Monster_Hunter_Logo.png">
         <link href='css/threadSelectStyle.css' rel='stylesheet' type='text/css' />
     </head>
 
@@ -19,9 +20,9 @@
                    </div>
 
                    <form class="regContainer" action='/postReg' method='POST'>
-                       
+
                        <p style="color: red;">{{getDupe}}</p>
-                       
+
                        <br>
                        <label>Username:</label>
                        <input id='new_user' name='new_user' required="required" type="text">
@@ -39,7 +40,7 @@
 
                        <br>
                        <input id="gogo" type="submit">
-                       
+
                        <p hidden id="dupeCheck">{{setBrowserDupe}}</p>
                    </form>
 
