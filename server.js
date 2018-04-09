@@ -207,9 +207,11 @@ app.param('name', (request, response, next, name) => {
 //      only username and post is used so far.
 //      refer to loadPosts() in google-sheets-functions.js
 app.get('/:name', (request, response) => {
+  var threadname;
   database.loadPosts(2).then((threadlist) => { //get the sheetnumber using param
     for (var x in threadlist) {
       if (threadlist[x].topic_link == response.req.params.name) {
+        threadname = threadlist[x].thread_name;
         return threadlist[x].sheet_num; //returns sheet number
       }
     }
@@ -217,7 +219,7 @@ app.get('/:name', (request, response) => {
     return database.loadPosts(sheet_number) //gets the sheet and return
   }).then((post_sheet) => {
     response.render('discussion_thread.hbs', {
-      topic: response.req.params.name.replace(/_/g," "),
+      topic: threadname,
       posts: post_sheet});
     current_sheet = post_sheet[0].sheet_num;
     redir_page = response.req.url;
