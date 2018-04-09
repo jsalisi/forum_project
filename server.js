@@ -150,8 +150,6 @@ app.get('/newPost', (request, response) => {
 
 app.post('/newPostResult', urlencodedParser, (request, response) => {
   var datetime = new Date();
-  // TODO: Need to post to the thread that's click on
-  // TODO: Need to have real user's username passed through
   database.addNewPost(current_user, datetime, request.body.topContent, current_sheet).then((result) => {
     console.log(result);
     response.redirect(redir_page);
