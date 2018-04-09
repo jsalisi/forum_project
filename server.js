@@ -134,7 +134,7 @@ app.post('/postResult', urlencodedParser, (request, response) => {
     database.addNewThread(current_user, request.body.topTitle, request.body.topContent, datetime).then((results) => {
       database.addNewPost(results.user, datetime, results.thread_post, results.thread_num).then((result) => {
         console.log(result);
-        response.redirect('/home');
+        response.redirect(`/${results.link}`);
       }).catch((error) => {
         response.send(error);
       });

@@ -119,7 +119,8 @@ var addNewThread = (user, topic, thread_post, date) => {
                 resolve({
                   user: user,
                   thread_post: thread_post,
-                  thread_num: thread_num
+                  thread_num: thread_num,
+                  link: topic.replace(/ /g,"_").substring(0,14)
                 });
               }
             });
@@ -148,7 +149,7 @@ var addNewPost = (user, date, thread_post, thread_num) => {
           if (err) {
             console.log(err);
           } else {
-            doc.addRow(thread_num, { //TODO: update threads sheet namely: last_poster, last_post_date, viewed, and total_posts
+            doc.addRow(thread_num, {
                 post_num: rows.length + 1,
                 username: user,
                 date: date,
