@@ -112,28 +112,38 @@ hbs.registerHelper('setBrowserFlag', () => {
     return browser_flag;
 });
 
-
-//*********************************Rendering*******************************//
-
-passport.deserializeUser(function(id, done) {
-    done(err, user);
-});
-
-
-// Redirecting '/' to Home Page
+/**
+ * @param {string} '/' - root action script, when '/' is called upon for port 8080
+ * @param {object} request - request object from user
+ * @param {object} response - what our respons will be, when '/' is requested
+ */
 app.get('/', (request, response) => {
+  /**
+   * @param {string} '/home' - our respons will redirect to '/home' action script
+   */
   response.redirect('/home');
 });
 
-// rendering home page.
-// refer to google-sheets-functions.js for .loadPosts()
+/**
+ * @param {string} '/home' - what app.get will take action upon when '/home' is called
+ * @param {object} request - request object from user
+ * @param {object} response - what our response will be, when '/home' is called
+ */
 app.get('/home', (request, response) => {
   database.loadPosts(2).then((post) => {
     console.log('Loading posts...');
+
+    /**
+     * @param {string} 'index.hbs' - 'index.hbs' template will be rendered, when '/home' is requested for script action
+     * @param {object} thread - where thread will be rendered for post partial when index.hbs is rendered
+     */
     response.render('index.hbs', {
         thread: post
     });
   }).catch((error) => {
+    /**
+     * throws {error} throw error when request catches error
+     */
     response.send(error);
   });
 });
