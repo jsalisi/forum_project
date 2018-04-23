@@ -73,6 +73,9 @@ var dupe_comment = '';
 var current_sheet = '';
 var redir_page = '';
 
+/**
+ * @method
+ */
 hbs.registerHelper('getBanner', () => {
     if (login_flag === 0) {
         return 'topBanner'
