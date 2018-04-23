@@ -148,11 +148,25 @@ app.get('/home', (request, response) => {
   });
 });
 
-// login cred check
+/**
+ * @param {string} '/relog' - what app.get will take action upon when '/relog' is called
+ * @param {object} request - request object from user
+ * @param {object} response - what our response will be, when '/relog' is called
+ */
 app.get('/relog', (request, response) => {
+  /**
+   * @param {string} 'relogin.hbs' - will render 'relogin.hbs' template, when '/relog' is called upon
+   */
   response.render('relogin.hbs')
 });
 
+
+/**
+ * @function
+ * @param {string} '/home' - what app.get will take action upon when '/home' is called
+ * @param {object} request - request object from user
+ * @param {object} response - what our response will be, when '/home' is called
+ */
 app.post('/checkCred', urlencodedParser, (request, response) => {
     database.login(request.body.user, request.body.pass).then((results) => {
       if (results === 'yes') {
