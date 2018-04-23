@@ -74,7 +74,7 @@ var current_sheet = '';
 var redir_page = '';
 
 /**
- * @method
+ * @returns {string} returns login_flag for banner
  */
 hbs.registerHelper('getBanner', () => {
     if (login_flag === 0) {
@@ -84,18 +84,30 @@ hbs.registerHelper('getBanner', () => {
     }
 });
 
+/**
+ * @returns {string} returns the login_flag for setlogcheck which is a string
+ */
 hbs.registerHelper('setLoginCheck', () => {
     return login_flag;
 });
 
+/**
+ * @return {string} returns the username of the current login user
+ */
 hbs.registerHelper('getUser', () => {
     return current_user;
 });
 
+/**
+ * @return {string} returns the error comment when detecting dupe username when registering
+ */
 hbs.registerHelper('getDupe', () => {
     return dupe_comment;
 });
 
+/**
+ * @return {number} returns a number for browser flag. so it renders the correct banner partial
+ */
 hbs.registerHelper('setBrowserFlag', () => {
     return browser_flag;
 });
