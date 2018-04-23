@@ -1,4 +1,13 @@
-// Requiring additional functions
+/**
+ * @type {object} express - requires express module
+ * @type {object} request - requires request module
+ * @type {object} bodyParser - requires bodyParser module
+ * @type {object} hbs - requires hbs module
+ * @type {object} session - requires session module
+ * @type {object} passport - requires passport module
+ * @type {object} cookieParser - requires cookieParser module
+ * @type {object} port - sets listening port to 8080
+ */
 const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
@@ -8,14 +17,23 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 8080;
 
-
+/**
+ * @type {object} database - requires from google-sheets-functions.js to setup database
+ * @type {object} urlencodedParser - calls on bodyParser.urlencoded{{extended:false}} for form posting
+ */
 // Importing file to access the Google Spreadsheet database
 const database = require('./public/js/google-sheets-functions.js');
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
 
-// Initializing express
+/**
+ * @type {type} app - sets app to call on express() initialization
+ */
 var app = express();
 
+/**
+ * @param {object} express.static - set up app.use so that it uses html related files from that directory
+ * @param {string} __dirname - folder path
+ */
 app.use(express.static(__dirname + '/public'));
 /*app.use(passport.initialize());
 app.use(cookieParser());
@@ -26,17 +44,28 @@ app.use(session({
 }));
 app.use(passport.session());*/
 
-// Set views folder to be available for use
-// Set the view engine to use .hbs files for the template format
+/**
+ * @param {string} views sets - views from the views directory
+ * @type {string} view engine - set sets view engine from the module hbs
+ */
 app.set('views', './views');
 app.set('view engine', 'hbs');
 
-// registering Partials
+/**
+ * @param {string} __dirname - registering partials in following paths
+ */
 hbs.registerPartials(__dirname + '/views/partials/homePartials');
 hbs.registerPartials(__dirname + '/views/partials/monhunPartials');
 hbs.registerPartials(__dirname + '/views/partials/communityPartials');
 
-// helpers
+/**
+ * @param {string} current_user - current user flag
+ * @param {number} login_flag - flags for login status will be removed later
+ * @param {number} brower_flag - flags for browser status used for partial swaps
+ * @param {string} dupe_comment - comment for error if dupe user detected when trying to register a new user
+ * @param {string} current_sheet - sets the current google spreadsheet for thread link
+ * @param {string} redir_page - sets varable for redirect after login
+ */
 var current_user = '';
 var login_flag = 0;
 var browser_flag = 0;
