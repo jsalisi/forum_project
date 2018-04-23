@@ -12,7 +12,7 @@ const doc = new GoogleSpreadsheet('1cwmWMqAoqzYHhla1vpE_qiV5uQzRfuJ4HoPsfeH6LVk'
 const USERS_WORKSHEET = 1;
 const THREAD_WORKSHEET = 2; //removed and will use a parameter instead.
 
-/*
+/**
 ** Spreadsheet Notes **
 
   Google Spreadsheets objects are returned with the following format:
@@ -21,9 +21,10 @@ const THREAD_WORKSHEET = 2; //removed and will use a parameter instead.
 
 */
 
-/*
+/**
 * Loads data from the spreadsheet
 *
+* @param {number} worksheet - sheetnumber for google spreadsheet
 * @resolve {object} rows - contains the data from the spreadsheet
 */
 var loadPosts = (worksheet) => {
@@ -75,12 +76,13 @@ var loadPosts = (worksheet) => {
   });
 }
 
-/*
+/**
 * Appends a thread as a worksheet to the spreadsheet
 *
 * @param {string} user - A username
 * @param {string} topic - A title for the post
 * @param {string} thread_post - Initial thread post
+* @param {object} date - datetime object
 */
 var addNewThread = (user, topic, thread_post, date) => {
   return new Promise((resolve, reject) => {
@@ -131,7 +133,7 @@ var addNewThread = (user, topic, thread_post, date) => {
   });
 }
 
-/*
+/**
 * Appends a post to the spreadsheet
 *
 * @param {string} user - A username
@@ -175,7 +177,7 @@ var addNewPost = (user, date, thread_post, thread_num) => {
   });
 }
 
-/*
+/**
 * Appends a user object to the spreadsheet
 *
 * @param {string} user - A username
@@ -204,7 +206,7 @@ var addNewUser = (user, pass, account_type) => {
   });
 }
 
-/*
+/**
 * Allows users to login using credentials saved in the databse
 *
 * @param {string} user - A username
@@ -230,7 +232,9 @@ var login = (user, pass) => {
 };
 
 // check for existence
-
+/**
+ * @param {string} user - checks if username to register exists in database
+ */
 var existcheck = (user) => {
   return new Promise((resolve, reject) => {
     var existcheck = {username: user};
@@ -251,7 +255,7 @@ var existcheck = (user) => {
 };
 
 
-/*
+/**
 * Checks if the user credentials matches with the database.
 *
 * @param {object} login - Contains an object with user credentials
@@ -273,6 +277,11 @@ var parseUserCreds = (login, userList) => {
   return return_statements.failed;
 }
 
+/**
+ * 
+ * @param {string} login - username login input
+ * @param {object} userList - object containing list of registered user from spreadsheet
+ */
 var checkFlag = (login, userList) => {
 
   var return_statements = {
@@ -289,6 +298,10 @@ var checkFlag = (login, userList) => {
   return return_statements.failed;
 }
 
+/**
+ * 
+ * @param {object} data - object containing new post to add to thread 
+ */
 var updateThreadList = (data) => {
   doc.useServiceAccountAuth(creds, function(err) {
     if (err) {
@@ -318,6 +331,10 @@ var updateThreadList = (data) => {
   });
 }
 
+/**
+ * 
+ * @param {number} sheet - sheet number of thread to be updated in threadlist
+ */
 var updatePostView = (sheet) => {
   doc.useServiceAccountAuth(creds, function(err) {
     if(err) {
